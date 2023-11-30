@@ -7,6 +7,7 @@
     "formulahendry.auto-rename-tag",
     "sonarsource.sonarlint-vscode",
     "streetsidesoftware.code-spell-checker",
-    "usernamehw.errorlens"
+    "usernamehw.errorlens",
+    "wix.vscode-import-cost"
   ]
 }
