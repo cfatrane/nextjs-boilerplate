@@ -49,48 +49,58 @@
             "position": "after"
           },
           {
-            "pattern": "assets/**",
+            "pattern": "@/assets/**",
             "group": "internal",
             "position": "after"
           },
 
           {
-            "pattern": "components/**",
+            "pattern": "@/components/**",
             "group": "internal",
             "position": "after"
           },
           {
-            "pattern": "constants/**",
+            "pattern": "@/constants/**",
             "group": "internal",
             "position": "after"
           },
           {
-            "pattern": "helpers/**",
+            "pattern": "@/helpers/**",
             "group": "internal",
             "position": "after"
           },
           {
-            "pattern": "pages/**",
+            "pattern": "@/hooks/**",
+            "group": "internal",
+            "position": "after"
+          },
+          // {
+          //   "pattern": "@/pages/**",
+          //   "group": "internal",
+          //   "position": "after"
+          // },
+          {
+            "pattern": "@/redux/**",
             "group": "internal",
             "position": "after"
           },
           {
-            "pattern": "redux/**",
+            "pattern": "@/routes/**",
             "group": "internal",
             "position": "after"
           },
           {
-            "pattern": "routes/**",
+            "pattern": "@/styles/**",
             "group": "internal",
             "position": "after"
           },
           {
-            "pattern": "type/**",
+            "pattern": "@/types/**",
             "group": "internal",
             "position": "after"
           },
           {
-            "pattern": "utils/**",
+            "pattern": "@/utils/**",
             "group": "internal",
             "position": "after"
           }
