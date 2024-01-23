@@ -123,9 +123,24 @@
     "react-refresh/only-export-components": [
       "warn",
       {
-        "allowConstantExport": true
+        "allowConstantExport": true,
+        "allowExportNames": [
+          "meta",
+          "metadata",
+          "links",
+          "headers",
+          "loader",
+          "action"
+        ]
       }
     ]
+
+    // "react-refresh/only-export-components": [
+    //   "warn",
+    //   {
+    //     "allowConstantExport": true
+    //   }
+    // ]
   },
   "settings": {
     "import/resolver": {
