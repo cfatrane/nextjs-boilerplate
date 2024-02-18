@@ -1,12 +1,14 @@
 {
   // E
   // Editor
+  "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
+  "editor.tabSize": 2,
   // ErroLens
   "errorLens.enabled": true,
   // Eslint
