@@ -34,3 +34,41 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+# Project Structure
+
+```bash
+├── next-env.d.ts
+├── next.config.js
+├── package.json
+├── postcss.config.js
+├── public
+│   ├── next.svg
+│   └── vercel.svg
+├── src
+│   ├── app
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── assets
+│   ├── components
+│   │   └── index.tsx
+│   ├── constants
+│   │   └── index.ts
+│   ├── hooks
+│   │   └── index.ts
+│   ├── redux
+│   │   └── index.tsx
+│   ├── services
+│   │   └── index.ts
+│   ├── styles
+│   ├── tests
+│   │   └── index.ts
+│   ├── types
+│   │   └── index.ts
+│   └── utils
+│       └── index.ts
+├── tailwind.config.ts
+└── tsconfig.json
+```
