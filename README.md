@@ -1,10 +1,10 @@
 # Boilerplate Next Js 14
 
-# Table of Contents
+# Table of Contents 📋
 
 WIP
 
-## Getting Started
+## Getting Started 🤔
 
 First, run the development server:
 
@@ -24,7 +24,7 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Learn More 🧠
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -33,13 +33,13 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deploy on Vercel 🚀
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-# Features
+## Features 🛠️
 
 - Husky 🐶
 - Prettier
@@ -55,32 +55,36 @@ Soon
 - Shadcn
 - Storybook
 
-# Project Structure
+## Project Structure 📁
 
 ```bash
-├── next-env.d.ts
-├── next.config.js
-├── package.json
-├── postcss.config.js
-├── public
-│   ├── next.svg
-│   └── vercel.svg
+├── .eslintrc.json        #
+├── .git                  #
+├── .gitignore            #
+├── .husky                #
+├── .prettierignore       #
+├── .prettierrc           # Prettier configuration
+├── .vscode               # VSCode configurations (extensions, settings ...)
 ├── src
-│   ├── app
-│   │   ├── favicon.ico
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   ├── assets
-│   ├── components
-│   ├── constants
-│   ├── hooks
-│   ├── redux
-│   ├── services
-│   ├── styles
-│   ├── tests
-│   ├── types
-│   └── utils
-├── tailwind.config.ts
-└── tsconfig.json
+│   ├── app               # Main folder
+│   ├── assets            #
+│   ├── components        #
+│   ├── constants         #
+│   ├── hooks             # List of personals hooks
+│   ├── redux             #
+│   ├── services          # List of services
+│   ├── styles            # List of styles
+│   ├── tests             # List of tests
+│   ├── types             #
+│   └── utils             #
+├── tailwind.config.ts    #
+└── tsconfig.json         #
 ```
+
+## Testing 🧪
+
+WIP
+
+## Translation 🗺️
+
+WIP
