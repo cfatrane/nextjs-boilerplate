@@ -54,6 +54,7 @@ Soon
 - i18n
 - Shadcn
 - Storybook
+- Stripe
 
 ## Project Structure 📁
 
@@ -80,6 +81,10 @@ Soon
 ├── tailwind.config.ts    #
 └── tsconfig.json         #
 ```
+
+### Storybook
+
+WIP
 
 ## Testing 🧪
 
