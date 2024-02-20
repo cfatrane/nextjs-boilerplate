@@ -1,6 +1,6 @@
 # Boilerplate Next Js 14
 
-# Table of Contents 📋
+## Table of Contents 📋
 
 WIP
 
