@@ -72,6 +72,7 @@ Soon
 │   ├── components        #
 │   ├── constants         #
 │   ├── hooks             # List of personals hooks
+│   ├── lib             # The lib folder contains all the utility functions
 │   ├── redux             #
 │   ├── services          # List of services
 │   ├── styles            # List of styles
