@@ -42,16 +42,16 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Features 🛠️
 
 - Husky 🐶
+- Linter
 - Prettier
 - Tailwind
-- Linter
 - VSCode
 
 Soon
 
 - Authentication
-- Github Actions
 - i18n
+- Github Actions
 - Shadcn
 - Storybook
 - Stripe
