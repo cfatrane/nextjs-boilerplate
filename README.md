@@ -1,6 +1,6 @@
 # Boilerplate Next Js 14
 
-![Github Banner 1280x640](https://github.com/cfatrane/nextjs-boilerplate/assets/17748314/553415c6-acf1-452d-9b88-20d9f181ea22)
+![Github Banner](https://github.com/cfatrane/nextjs-boilerplate/assets/17748314/bc164089-4d42-4c4d-92e7-cbe3b7d96c7e)
 
 WIP
 
