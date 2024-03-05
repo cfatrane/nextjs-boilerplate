@@ -6,6 +6,7 @@
     "esbenp.prettier-vscode",
     "formulahendry.auto-close-tag",
     "formulahendry.auto-rename-tag",
+    "lokalise.i18n-ally",
     "mikestead.dotenv",
     "orta.vscode-jest",
     "sonarsource.sonarlint-vscode",
