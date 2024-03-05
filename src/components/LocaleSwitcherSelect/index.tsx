@@ -5,7 +5,7 @@ import { ChangeEvent, ReactNode, useTransition } from 'react';
 import clsx from 'clsx';
 import { useParams } from 'next/navigation';
 
-import { useRouter, usePathname } from '../../navigation';
+import { useRouter, usePathname } from '../../i18n/navigation';
 
 type Props = {
   children: ReactNode;

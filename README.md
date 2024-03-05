@@ -46,17 +46,17 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Features 🛠️
 
 - Husky 🐶
+- i18n
 - Linter
 - Prettier
+- Shadcn
 - Tailwind
 - VSCode
 
 Soon
 
 - Authentication
-- i18n
 - Github Actions
-- Shadcn
 - Storybook
 - Stripe
 
