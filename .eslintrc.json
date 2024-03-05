@@ -120,6 +120,7 @@
         }
       }
     ],
+    // "sort-imports": 1,
 
     // React
     "react/jsx-newline": 1,
