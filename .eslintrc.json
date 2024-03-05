@@ -41,12 +41,17 @@
             "position": "before"
           },
           {
+            "pattern": "next",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
             "pattern": "vite",
             "group": "builtin",
             "position": "before"
           },
           {
-            "pattern": "api/**",
+            "pattern": "@/api/**",
             "group": "internal",
             "position": "after"
           },

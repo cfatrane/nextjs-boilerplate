@@ -35,5 +35,6 @@
   },
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
-  }
+  },
+  "i18n-ally.localesPaths": ["messages"]
 }
