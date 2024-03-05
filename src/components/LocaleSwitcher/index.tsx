@@ -8,7 +8,6 @@ export default function LocaleSwitcher() {
   const t = useTranslations('LocaleSwitcher');
   const locale = useLocale();
 
-  console.log('locale', locale);
   return (
     <LocaleSwitcherSelect defaultValue={locale} label={t('label')}>
       {locales.map((cur) => (

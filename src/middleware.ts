@@ -1,11 +1,13 @@
 import createMiddleware from 'next-intl/middleware';
 
-export default createMiddleware({
-  // A list of all locales that are supported
-  locales: ['en', 'fr'],
+import { locales, localePrefix } from './config';
 
+export default createMiddleware({
   // Used when no locale matches
   defaultLocale: 'en',
+  // A list of all locales that are supported
+  locales,
+  localePrefix,
 });
 
 export const config = {
