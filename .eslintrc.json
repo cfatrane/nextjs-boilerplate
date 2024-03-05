@@ -60,7 +60,6 @@
             "group": "internal",
             "position": "after"
           },
-
           {
             "pattern": "@/components/**",
             "group": "internal",
@@ -81,11 +80,11 @@
             "group": "internal",
             "position": "after"
           },
-          // {
-          //   "pattern": "@/pages/**",
-          //   "group": "internal",
-          //   "position": "after"
-          // },
+          {
+            "pattern": "@/i18n/**",
+            "group": "internal",
+            "position": "after"
+          },
           {
             "pattern": "@/redux/**",
             "group": "internal",
