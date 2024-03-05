@@ -76,7 +76,8 @@ Soon
 │   ├── components        #
 │   ├── constants         #
 │   ├── hooks             # List of personals hooks
-│   ├── lib             # The lib folder contains all the utility functions
+│   ├── i18n              # Folder for all the configuration and translations files
+│   ├── lib               # The lib folder contains all the utility functions
 │   ├── redux             #
 │   ├── services          # List of services
 │   ├── styles            # List of styles
@@ -86,6 +87,14 @@ Soon
 ├── tailwind.config.ts    #
 └── tsconfig.json         #
 ```
+
+### i18n
+
+WIP
+
+### Shadcn
+
+WIP
 
 ### Storybook
 
