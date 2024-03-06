@@ -40,5 +40,6 @@
     "src/i18n",
     "src/i18n/locales",
     "src/i18n/messages"
-  ]
+  ],
+  "cSpell.language": "en,fr"
 }
