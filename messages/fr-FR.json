@@ -1,27 +1,27 @@
 {
   "Home": {
     "Docs": {
-      "title": "Docs",
-      "text": " Find in-depth information about Next.js features and API."
+      "title": "Documentation",
+      "text": " Trouvez des informations détaillées sur les fonctionnalités et l’API Next.js."
     },
     "Learn": {
-      "title": "Learn",
-      "text": "Learn about Next.js in an interactive course with quizzes!"
+      "title": "En savoir plus",
+      "text": "Apprenez-en plus sur Next.js dans un cours interactif avec des quiz !"
     },
     "Templates": {
-      "title": "Templates",
-      "text": "Explore starter templates for Next.js."
+      "title": "Modèles",
+      "text": "Explorer les modèles de démarrage pour Next.js."
     },
     "Deploy": {
-      "title": "Deploy",
-      "text": "Instantly deploy your Next.js site to a shareable URL with Vercel."
+      "title": "Déploiement",
+      "text": "Déployez instantanément votre site Next.js vers une URL partageable avec Vercel."
     }
   },
   "Index": {
-    "title": "Hello world!"
+    "title": "Bonjour tout le monde !"
   },
   "LocaleSwitcher": {
-    "label": "Change language",
-    "locale": "{locale, select, fr {🇫🇷 Français} en {🇺🇸 English} other {Unknown}}"
+    "label": "Changer de langue",
+    "locale": "{locale, select, fr {🇫🇷 Français} en {🇺🇸 Anglais} other {Inconnu}}"
   }
 }
