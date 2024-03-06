@@ -53,7 +53,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - **Tailwind** : A utility-first CSS framework that streamlines web development by providing a set of pre-designed utility classes.
 - **VSCode** : Configuration file and recommended extensions
 
-Soon
+### Soon
 
 - **Authentication**
 - **Crowdin** : A localization management platform that aims to make the translation process more efficient.
