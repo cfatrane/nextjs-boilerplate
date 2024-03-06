@@ -45,21 +45,24 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Features 🛠️
 
-- Husky 🐶
-- i18n
-- Linter
-- Prettier
-- Shadcn
-- Tailwind
-- VSCode
+- **Husky** 🐶 : Automatically lint your commit messages, code, and run tests upon committing or pushing.
+- **i18n** : The process of designing and developing software so it can be adapted for users of different cultures and languages
+- **ESlint** : Statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
+- **Prettier** : An opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
+- **Shadcn** : A collection of beautifully designed, accessible, and customizable React components that you can use to build modern web applications with Next. js.
+- **Tailwind** : A utility-first CSS framework that streamlines web development by providing a set of pre-designed utility classes.
+- **VSCode** : Configuration file and recommended extensions
 
 Soon
 
-- Authentication
-- Crowdin
-- Github Actions
-- Storybook
-- Stripe
+- **Authentication**
+- **Crowdin** : A localization management platform that aims to make the translation process more efficient.
+- **Jest**: For unit and integration testing
+- **React Hook Form** : A library that helps you validate forms in React.
+- **Github Actions** : A continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline.
+- **Storybook** : A development environment tool that is used as a playground for UI components. It allows us, the developers, to create and test components in isolation.
+- **Sentry** : For real-time error tracking and monitoring
+- **Stripe** : Stripe powers online and in-person payment processing and financial solutions for businesses of all sizes.
 
 ## Project Structure 📁
 
