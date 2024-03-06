@@ -10,13 +10,13 @@ WIP
 
 ## Features 🛠️
 
-- **Husky** 🐶 : Automatically lint your commit messages, code, and run tests upon committing or pushing.
-- **i18n** : The process of designing and developing software so it can be adapted for users of different cultures and languages
-- **ESlint** : Statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
-- **Prettier** : An opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
-- **Shadcn** : A collection of beautifully designed, accessible, and customizable React components that you can use to build modern web applications with Next. js.
-- **Tailwind** : A utility-first CSS framework that streamlines web development by providing a set of pre-designed utility classes.
-- **VSCode** : Configuration file and recommended extensions
+- [**Husky** 🐶](https://typicode.github.io/husky/) : Automatically lint your commit messages, code, and run tests upon committing or pushing.
+- [**i18n**](https://next-intl-docs.vercel.app/) : The process of designing and developing software so it can be adapted for users of different cultures and languages
+- [**ESlint**](https://eslint.org/) : Statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
+- [**Prettier**](https://prettier.io/) : An opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
+- [**Shadcn**](https://ui.shadcn.com/) : A collection of beautifully designed, accessible, and customizable React components that you can use to build modern web applications with Next. js.
+- [**Tailwind**](https://tailwindcss.com/) : A utility-first CSS framework that streamlines web development by providing a set of pre-designed utility classes.
+- [**VSCode**](https://marketplace.visualstudio.com/vscode) : Configuration file and recommended extensions
 
 ### Soon
 
@@ -113,7 +113,7 @@ WIP
 
 WIP
 
-## Vscode Extensions
+## VSCode Extensions
 
 ### [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
 
