@@ -56,6 +56,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 Soon
 
 - Authentication
+- Crowdin
 - Github Actions
 - Storybook
 - Stripe
@@ -70,6 +71,7 @@ Soon
 ├── .prettierignore       #
 ├── .prettierrc           # Prettier configuration
 ├── .vscode               # VSCode configurations (extensions, settings ...)
+├── messages              # Folder for all the translation files of i18n
 ├── src
 │   ├── app               # Main folder
 │   ├── assets            #
@@ -134,7 +136,7 @@ The extension uses the ESLint library installed in the opened workspace folder. 
 
 On new folders you might also need to create an .eslintrc configuration file. You can do this by either using the VS Code command Create ESLint configuration or by running the eslint command in a terminal with `npx eslint --init`.
 
-### [i18n Ally](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally)
+### [i18n Ally](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
 
 General Features
 
@@ -143,6 +145,10 @@ General Features
 - Supports numerous popular frameworks
 - Supports linked locale messages
 - Uses i18n for the extension itself, of course. Translation List
+
+### [SonarLint](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally)
+
+SonarLint by Sonar is a free IDE extension that empowers you to fix coding issues before they exist. More than a linter, SonarLint detects and highlights issues that can lead to bugs, vulnerabilities, and code smells as you create your code. It offers clear remediation guidance and educational help, so you can fix issues before the code is committed. SonarLint in VS Code supports analysis of JS/TS, Python, PHP, Java, C, C++, C#, Go, and IaC code locally in your IDE.
 
 ### [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
 
