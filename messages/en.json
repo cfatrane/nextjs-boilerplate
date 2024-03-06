@@ -15,13 +15,13 @@
     "Deploy": {
       "title": "Deploy",
       "text": "Instantly deploy your Next.js site to a shareable URL with Vercel."
-    },
-    "Index": {
-      "title": "Hello world!"
-    },
-    "LocaleSwitcher": {
-      "label": "Change language",
-      "locale": "{locale, select, fr {🇫🇷 Français} en {🇺🇸 English} other {Unknown}}"
     }
+  },
+  "Index": {
+    "title": "Hello world!"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, fr {🇫🇷 Français} en {🇺🇸 English} other {Unknown}}"
   }
 }
