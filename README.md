@@ -45,20 +45,24 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Features 🛠️
 
-- Husky 🐶
-- i18n
-- Linter
-- Prettier
-- Shadcn
-- Tailwind
-- VSCode
+- **Husky** 🐶 : Automatically lint your commit messages, code, and run tests upon committing or pushing.
+- **i18n** : The process of designing and developing software so it can be adapted for users of different cultures and languages
+- **ESlint** : Statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
+- **Prettier** : An opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
+- **Shadcn** : A collection of beautifully designed, accessible, and customizable React components that you can use to build modern web applications with Next. js.
+- **Tailwind** : A utility-first CSS framework that streamlines web development by providing a set of pre-designed utility classes.
+- **VSCode** : Configuration file and recommended extensions
 
 Soon
 
-- Authentication
-- Github Actions
-- Storybook
-- Stripe
+- **Authentication**
+- **Crowdin** : A localization management platform that aims to make the translation process more efficient.
+- **Jest**: For unit and integration testing
+- **React Hook Form** : A library that helps you validate forms in React.
+- **Github Actions** : A continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline.
+- **Storybook** : A development environment tool that is used as a playground for UI components. It allows us, the developers, to create and test components in isolation.
+- **Sentry** : For real-time error tracking and monitoring
+- **Stripe** : Stripe powers online and in-person payment processing and financial solutions for businesses of all sizes.
 
 ## Project Structure 📁
 
@@ -70,6 +74,7 @@ Soon
 ├── .prettierignore       #
 ├── .prettierrc           # Prettier configuration
 ├── .vscode               # VSCode configurations (extensions, settings ...)
+├── messages              # Folder for all the translation files of i18n
 ├── src
 │   ├── app               # Main folder
 │   ├── assets            #
@@ -134,7 +139,7 @@ The extension uses the ESLint library installed in the opened workspace folder. 
 
 On new folders you might also need to create an .eslintrc configuration file. You can do this by either using the VS Code command Create ESLint configuration or by running the eslint command in a terminal with `npx eslint --init`.
 
-### [i18n Ally](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally)
+### [i18n Ally](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
 
 General Features
 
@@ -143,6 +148,10 @@ General Features
 - Supports numerous popular frameworks
 - Supports linked locale messages
 - Uses i18n for the extension itself, of course. Translation List
+
+### [SonarLint](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally)
+
+SonarLint by Sonar is a free IDE extension that empowers you to fix coding issues before they exist. More than a linter, SonarLint detects and highlights issues that can lead to bugs, vulnerabilities, and code smells as you create your code. It offers clear remediation guidance and educational help, so you can fix issues before the code is committed. SonarLint in VS Code supports analysis of JS/TS, Python, PHP, Java, C, C++, C#, Go, and IaC code locally in your IDE.
 
 ### [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
 
