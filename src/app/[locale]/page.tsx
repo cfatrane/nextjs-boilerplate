@@ -53,7 +53,7 @@ export default function Index() {
           rel="noopener noreferrer"
           target="_blank">
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
+            {t('Docs.title')}{' '}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -70,7 +70,7 @@ export default function Index() {
           rel="noopener noreferrer"
           target="_blank">
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
+            {t('Learn.title')}{' '}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -87,7 +87,7 @@ export default function Index() {
           rel="noopener noreferrer"
           target="_blank">
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
+            {t('Templates.title')}{' '}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -104,7 +104,7 @@ export default function Index() {
           rel="noopener noreferrer"
           target="_blank">
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
+            {t('Deploy.title')}{' '}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
