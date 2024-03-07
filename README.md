@@ -1,12 +1,13 @@
-# Boilerplate Next Js 14
+# Boilerplate Next Js 14 WIP
 
 ![Github Banner 1280x640](https://github.com/cfatrane/nextjs-boilerplate/assets/17748314/392e9faa-349e-4a31-b550-b72c89709829)
-
-WIP
 
 ## Table of Contents 📋
 
 WIP
+
+- [Features](https://github.com/cfatrane/nextjs-boilerplate?tab=readme-ov-file#features-%EF%B8%8F)
+- [Project Structure](https://github.com/cfatrane/nextjs-boilerplate?tab=readme-ov-file#project-structure-)
 
 ## Features 🛠️
 
@@ -18,16 +19,17 @@ WIP
 - [**Tailwind**](https://tailwindcss.com/) : A utility-first CSS framework that streamlines web development by providing a set of pre-designed utility classes.
 - [**VSCode**](https://marketplace.visualstudio.com/vscode) : Configuration file and recommended extensions
 
-### Soon
+### Soon ⏱️
 
 - **Authentication**
-- **Crowdin** : A localization management platform that aims to make the translation process more efficient.
-- **Jest**: For unit and integration testing
-- **React Hook Form** : A library that helps you validate forms in React.
+- [**Crowdin**](https://crowdin.com/) : A localization management platform that aims to make the translation process more efficient.
+- [**Jest**](https://jestjs.io/) : For unit and integration testing
+- [**React Hook Form**](https://react-hook-form.com/) : A library that helps you validate forms in React.
 - **Github Actions** : A continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline.
-- **Storybook** : A development environment tool that is used as a playground for UI components. It allows us, the developers, to create and test components in isolation.
-- **Sentry** : For real-time error tracking and monitoring
-- **Stripe** : Stripe powers online and in-person payment processing and financial solutions for businesses of all sizes.
+- [**Storybook**](https://storybook.js.org/) : A development environment tool that is used as a playground for UI components. It allows us, the developers, to create and test components in isolation.
+- [**Sentry**](https://sentry.io/) : For real-time error tracking and monitoring
+- [**Stripe**](https://stripe.com/) : Stripe powers online and in-person payment processing and financial solutions for businesses of all sizes.
+- [**Redux Toolkit**](https://redux-toolkit.js.org/)
 
 ## Getting Started 🤔
 
@@ -49,46 +51,45 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More 🧠
+### Scripts
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel 🚀
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+dev: "next dev",
+build: "next build",
+start "next start",
+lint "next lint",
+lint:fix "next lint --fix",
+prepare "husky install",
+clean "rm -rf node_modules yarn.lock",
+storybook "storybook dev -p 6006",
+build-storybook "storybook build"
+```
 
 ## Project Structure 📁
 
 ```bash
-├── .eslintrc.json        #
+├── .eslintrc.json        # Configuration file for eslint
 ├── .git                  #
 ├── .gitignore            #
 ├── .husky                #
-├── .prettierignore       #
+├── .prettierignore       # Configuration file for ignore eslint folders and files
 ├── .prettierrc           # Prettier configuration
 ├── .vscode               # VSCode configurations (extensions, settings ...)
 ├── messages              # Folder for all the translation files of i18n
 ├── src
 │   ├── app               # Main folder
-│   ├── assets            #
-│   ├── components        #
-│   ├── constants         #
-│   ├── hooks             # List of personals hooks
+│   ├── assets            # Folder for all the assets
+│   ├── components        # Folder for all your components
+│   ├── constants         # Folder for all your constants
+│   ├── hooks             # Folder for all your personals hooks
 │   ├── i18n              # Folder for all the configuration and translations files
 │   ├── lib               # The lib folder contains all the utility functions
 │   ├── redux             #
 │   ├── services          # List of services
 │   ├── styles            # List of styles
 │   ├── tests             # List of tests
-│   ├── types             #
-│   └── utils             #
+│   ├── types             # List of types
+│   └── utils             # List of utils functions
 ├── tailwind.config.ts    #
 └── tsconfig.json         #
 ```
@@ -102,10 +103,6 @@ WIP
 WIP
 
 ### Storybook
-
-WIP
-
-## Testing 🧪
 
 WIP
 
@@ -156,3 +153,18 @@ SonarLint by Sonar is a free IDE extension that empowers you to fix coding issue
 ### [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
 
 ErrorLens turbo-charges language diagnostic features by making diagnostics stand out more prominently, highlighting the entire line wherever a diagnostic is generated by the language and also prints the message inline.
+
+## Deployment 🚀
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Learn More 🧠
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
