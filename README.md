@@ -15,16 +15,17 @@ WIP
 - [**i18n**](https://next-intl-docs.vercel.app/) : The process of designing and developing software so it can be adapted for users of different cultures and languages
 - [**ESlint**](https://eslint.org/) : Statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
 - [**Prettier**](https://prettier.io/) : An opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
+- [**React Hook Form**](https://react-hook-form.com/) : A library that helps you validate forms in React.
 - [**Shadcn**](https://ui.shadcn.com/) : A collection of beautifully designed, accessible, and customizable React components that you can use to build modern web applications with Next. js.
 - [**Tailwind**](https://tailwindcss.com/) : A utility-first CSS framework that streamlines web development by providing a set of pre-designed utility classes.
 - [**VSCode**](https://marketplace.visualstudio.com/vscode) : Configuration file and recommended extensions
+- [**Zod**](https://zod.dev/) : Schema validation with static type inference
 
 ### Soon ⏱️
 
 - **Authentication**
 - [**Crowdin**](https://crowdin.com/) : A localization management platform that aims to make the translation process more efficient.
 - [**Jest**](https://jestjs.io/) : For unit and integration testing
-- [**React Hook Form**](https://react-hook-form.com/) : A library that helps you validate forms in React.
 - **Github Actions** : A continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline.
 - [**Storybook**](https://storybook.js.org/) : A development environment tool that is used as a playground for UI components. It allows us, the developers, to create and test components in isolation.
 - [**Sentry**](https://sentry.io/) : For real-time error tracking and monitoring
@@ -168,3 +169,9 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Suggestions
+
+### Validation
+
+### State Management
