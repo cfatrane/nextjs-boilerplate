@@ -111,7 +111,7 @@ WIP
 
 WIP
 
-## VSCode Extensions
+## VSCode Extensions 💻
 
 ### [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
 
@@ -170,8 +170,18 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Suggestions
+## Suggestions ☝️
+
+### Components
+
+- [MUI](https://mui.com/core/)
+
+### State Management
+
+- [Recoil](https://recoiljs.org/)
+- [Zustand](https://github.com/pmndrs/zustand)
 
 ### Validation
 
-### State Management
+- [Joi](https://joi.dev/)
+- [Yup](https://github.com/jquense/yup)
