@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore .",
     "prepare": "husky install",
     "clean": "rm -rf node_modules yarn.lock",
     "storybook": "storybook dev -p 6006",
@@ -55,6 +57,7 @@
     "lint-staged": "^15.1.0",
     "postcss": "^8",
     "prettier": "^3.1.0",
+    "prettier-plugin-tailwindcss": "^0.5.12",
     "storybook": "^7.6.16",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
