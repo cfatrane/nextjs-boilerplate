@@ -139,6 +139,7 @@
     "react/jsx-newline": ["warn"],
     "react/jsx-no-useless-fragment": ["error", { "allowExpressions": true }],
     "react/jsx-sort-props": ["warn", { "ignoreCase": true }],
+    "react/prop-types": ["error", { "ignore": ["className"] }],
 
     "react-refresh/only-export-components": [
       "warn",

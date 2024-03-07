@@ -6,7 +6,7 @@
     "source.fixAll.eslint": "explicit"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
   "editor.tabSize": 2,
   // ErroLens
