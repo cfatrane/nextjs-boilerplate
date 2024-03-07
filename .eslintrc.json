@@ -19,7 +19,7 @@
   ],
   "ignorePatterns": ["dist", ".eslintrc.cjs"],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react-refresh"],
+  "plugins": ["react-refresh", "prettier"],
   "rules": {
     "import/order": [
       2,
@@ -120,7 +120,7 @@
       }
     ],
     // "sort-imports": 1,
-
+    "prettier/prettier": "error",
     // React
     "react/jsx-newline": 1,
     "react/jsx-no-useless-fragment": [2, { "allowExpressions": true }],
