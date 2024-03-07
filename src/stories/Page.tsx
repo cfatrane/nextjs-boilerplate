@@ -24,7 +24,6 @@ export const Page: React.FC = () => {
 
         <p>
           We recommend building UIs with a{' '}
-
           <a
             href="https://componentdriven.org"
             rel="noopener noreferrer"
@@ -54,16 +53,13 @@ export const Page: React.FC = () => {
 
         <p>
           Get a guided tutorial on component-driven development at{' '}
-
           <a
             href="https://storybook.js.org/tutorials/"
             rel="noopener noreferrer"
             target="_blank">
             Storybook tutorials
           </a>
-
           . Read more in the{' '}
-
           <a
             href="https://storybook.js.org/docs"
             rel="noopener noreferrer"
@@ -75,9 +71,7 @@ export const Page: React.FC = () => {
 
         <div className="tip-wrapper">
           <span className="tip">Tip</span> Adjust the width of the canvas with
-
           the{' '}
-
           <svg
             height="10"
             viewBox="0 0 12 12"

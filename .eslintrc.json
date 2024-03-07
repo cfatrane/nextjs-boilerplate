@@ -8,12 +8,12 @@
     "next/core-web-vitals",
     // "eslint:recommended",
     "plugin:react/recommended",
-    // "plugin:react-hooks/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:react/jsx-runtime",
-    // "plugin:tailwindcss/recommended",
+    "plugin:tailwindcss/recommended",
     // "plugin:import/recommended",
     // "plugin:import/typescript",
-    // "plugin:storybook/recommended",
+    "plugin:storybook/recommended",
     // "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
@@ -33,10 +33,10 @@
     "sourceType": "module"
   },
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react", "react-refresh"],
+  "plugins": ["react", "react-refresh", "prettier"],
   "rules": {
     "import/order": [
-      2,
+      "error",
       {
         "groups": [
           "builtin",
@@ -133,12 +133,11 @@
         }
       }
     ],
-    // "sort-imports": 1,
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error"],
     // React
-    // "react/jsx-newline": 1,
-    "react/jsx-no-useless-fragment": [2, { "allowExpressions": true }],
-    "react/jsx-sort-props": [1, { "ignoreCase": true }],
+    "react/jsx-newline": ["warn"],
+    "react/jsx-no-useless-fragment": ["error", { "allowExpressions": true }],
+    "react/jsx-sort-props": ["warn", { "ignoreCase": true }],
 
     "react-refresh/only-export-components": [
       "warn",
