@@ -1,20 +1,49 @@
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from "next-intl";
 
-import LocaleSwitcherSelect from '@/components/LocaleSwitcherSelect';
+import LocaleSwitcherSelect from "@/components/LocaleSwitcherSelect";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
-import { locales } from '@/i18n/config';
+import { locales } from "@/i18n/config";
 
 export default function LocaleSwitcher() {
-  const t = useTranslations('LocaleSwitcher');
+  const t = useTranslations("LocaleSwitcher");
   const locale = useLocale();
 
   return (
-    <LocaleSwitcherSelect defaultValue={locale} label={t('label')}>
-      {locales.map((cur) => (
-        <option key={cur} value={cur}>
-          {t('locale', { locale: cur })}
-        </option>
-      ))}
-    </LocaleSwitcherSelect>
+    <div>
+      <LocaleSwitcherSelect defaultValue={locale} label={t("label")}>
+        {locales.map((cur) => (
+          <option key={cur} value={cur}>
+            {t("locale", { locale: cur })}
+          </option>
+        ))}
+      </LocaleSwitcherSelect>
+
+      <Select defaultValue={locale}>
+        <SelectTrigger className="w-[180px]">
+          <SelectValue placeholder={t("label")} />
+        </SelectTrigger>
+
+        <SelectContent>
+          {locales.map((cur) => (
+            <SelectItem key={cur} value={cur}>
+              {t("locale", { locale: cur })}
+            </SelectItem>
+          ))}
+
+          {/* <SelectItem value='light'>Light</SelectItem>
+
+          <SelectItem value='dark'>Dark</SelectItem>
+
+          <SelectItem value='system'>System</SelectItem> */}
+        </SelectContent>
+      </Select>
+    </div>
   );
 }
