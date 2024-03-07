@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
+    "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -58,6 +59,7 @@
     "lint-staged": "^15.1.0",
     "postcss": "^8",
     "prettier": "^3.1.0",
+    "prettier-eslint": "^16.3.0",
     "prettier-plugin-tailwindcss": "^0.5.12",
     "storybook": "^7.6.16",
     "tailwindcss": "^3.3.0",
