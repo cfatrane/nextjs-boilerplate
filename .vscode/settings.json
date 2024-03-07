@@ -36,10 +36,6 @@
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "i18n-ally.localesPaths": [
-    "src/i18n",
-    "src/i18n/locales",
-    "src/i18n/messages"
-  ],
+  "i18n-ally.localesPaths": ["src/messages"],
   "cSpell.language": "en,fr"
 }
