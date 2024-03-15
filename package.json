@@ -14,7 +14,8 @@
     "clean": "rm -rf node_modules yarn.lock",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
