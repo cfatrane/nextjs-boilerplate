@@ -107,6 +107,12 @@ WIP
 
 WIP
 
+### Test
+
+Generate a basic Jest configuration file by running the following command `npm init jest@latest`
+
+This will take you through a series of prompts to setup Jest for your project, including automatically creating a `jest.config.ts`
+
 ## Translation 🗺️
 
 WIP

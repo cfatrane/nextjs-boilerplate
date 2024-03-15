@@ -13,7 +13,8 @@
     "prepare": "husky install",
     "clean": "rm -rf node_modules yarn.lock",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test": "jest"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
