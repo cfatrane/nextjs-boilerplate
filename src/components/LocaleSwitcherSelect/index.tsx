@@ -1,9 +1,8 @@
 "use client";
 
-import { ChangeEvent, ReactNode, useTransition } from "react";
+import { ReactNode, useTransition } from "react";
 
-import clsx from "clsx";
-import { useParams } from "next/navigation";
+import { Select, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 import { useRouter, usePathname } from "@/i18n/navigation";
 
@@ -19,36 +18,27 @@ export default function LocaleSwitcherSelect({
   label,
 }: Props) {
   const router = useRouter();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
   // const params = useParams();
 
   // TODO: Fix change language
 
-  function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
-    const nextLocale = event.target.value;
+  function onSelectChange(value: string) {
+    const nextLocale = value;
     startTransition(() => {
       router.replace(pathname, { locale: nextLocale });
     });
   }
 
   return (
-    <label
-      className={clsx(
-        "relative text-gray-400",
-        isPending && "transition-opacity [&:disabled]:opacity-30"
-      )}>
-      <p className="sr-only">{label}</p>
+    <Select defaultValue={defaultValue} onValueChange={onSelectChange}>
+      <SelectTrigger className="w-[180px]">
+        <SelectValue placeholder={label} />
+      </SelectTrigger>
 
-      <select
-        className="inline-flex appearance-none bg-transparent py-3 pl-2 pr-6"
-        defaultValue={defaultValue}
-        disabled={isPending}
-        onChange={onSelectChange}>
-        {children}
-      </select>
-
-      <span className="pointer-events-none absolute right-2 top-[8px]">⌄</span>
-    </label>
+      {children}
+    </Select>
   );
 }
