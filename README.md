@@ -111,7 +111,19 @@ WIP
 
 Generate a basic Jest configuration file by running the following command `npm init jest@latest`
 
-This will take you through a series of prompts to setup Jest for your project, including automatically creating a `jest.config.ts`
+This will take you through a series of prompts to setup Jest for your project, including automatically creating a `jest.config.ts`.
+
+Jest will look for test files with any of the following popular naming conventions:
+
+- Files with `.js` suffix in `__tests__` folders.
+- Files with `.test.js` suffix.
+- Files with `.spec.js` suffix.
+
+The `.test.js` / `.spec.js` files (or the `__tests__`folders) can be located at any depth under the `src` top level folder.
+
+We recommend to put the test files (or `__tests__` folders) next to the code they are testing so that relative imports appear shorter. For example, if `App.test.js` and `App.js` are in the same folder, the test only needs to `import App from './App'` instead of a long relative path. Collocation also helps find tests more quickly in larger projects.
+
+To run test `yarn test`
 
 ## Translation 🗺️
 
@@ -122,7 +134,7 @@ WIP
 ### [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
 
 The Better Comments extension will help you create more human-friendly comments in your code.
-With this extension, you will be able to categorise your annotations into:
+With this extension, you will be able to categorize your annotations into:
 
 - Alerts
 - Queries

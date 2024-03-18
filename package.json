@@ -69,6 +69,7 @@
     "prettier-plugin-tailwindcss": "^0.5.12",
     "storybook": "^7.6.16",
     "tailwindcss": "^3.3.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   },
   "packageManager": "yarn@1.22.1",
