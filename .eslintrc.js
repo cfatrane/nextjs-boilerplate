@@ -35,6 +35,14 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   plugins: ["react", "react-refresh", "prettier"],
   rules: {
+    // C
+    camelcase: "warn",
+    "capitalized-comments": "warn",
+    // D
+    "default-param-last": ["error"],
+    // E
+    eqeqeq: "error",
+    // I
     "import/order": [
       "error",
       {
@@ -131,12 +139,17 @@ module.exports = {
         pathGroupsExcludedImportTypes: ["react"],
         alphabetize: {
           order:
-            "asc" /* sort in ascending order. Options: ['ignore', 'asc', 'desc'] */,
-          caseInsensitive: true /* ignore case. Options: [true, false] */,
+            "asc" /* Sort in ascending order. Options: ['ignore', 'asc', 'desc'] */,
+          caseInsensitive: true /* Ignore case. Options: [true, false] */,
         },
       },
     ],
-    // P
+    // M
+    "max-params": ["warn", 3],
+    // N
+    "no-console": ["warn", { allow: ["warn", "error"] }],
+    "no-empty-function": "warn",
+    "no-param-reassign": "error",
     // P
     "padding-line-between-statements": [
       "error",
@@ -150,14 +163,21 @@ module.exports = {
         next: ["const", "let", "var"],
       },
     ],
+    "prefer-const": "error",
+    "prefer-object-spread": "warn",
     "prettier/prettier": ["error"],
+    // R
+    "require-await": "error",
+    // S
+    "sort-keys": ["warn", "asc", { natural: true, minKeys: 5 }],
+    "sort-vars": "error",
 
     // React
+    // eslint-disable-next-line sort-keys
     "react/jsx-newline": ["warn"],
     "react/jsx-no-useless-fragment": ["error", { allowExpressions: true }],
     "react/jsx-sort-props": ["warn", { ignoreCase: true }],
     "react/prop-types": ["error", { ignore: ["className"] }],
-
     "react-refresh/only-export-components": [
       "warn",
       {
