@@ -11,8 +11,10 @@ WIP
 
 ## Features 🛠️
 
+- [**Crowdin**](https://crowdin.com/) : A localization management platform that aims to make the translation process more efficient.
 - [**Husky** 🐶](https://typicode.github.io/husky/) : Automatically lint your commit messages, code, and run tests upon committing or pushing.
 - [**i18n**](https://next-intl-docs.vercel.app/) : The process of designing and developing software so it can be adapted for users of different cultures and languages
+- [**Jest**](https://jestjs.io/) : For unit and integration testing
 - [**ESlint**](https://eslint.org/) : Statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
 - [**Prettier**](https://prettier.io/) : An opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
 - [**React Hook Form**](https://react-hook-form.com/) : A library that helps you validate forms in React.
@@ -24,8 +26,6 @@ WIP
 ### Soon ⏱️
 
 - **Authentication**
-- [**Crowdin**](https://crowdin.com/) : A localization management platform that aims to make the translation process more efficient.
-- [**Jest**](https://jestjs.io/) : For unit and integration testing
 - **Github Actions** : A continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline.
 - [**Storybook**](https://storybook.js.org/) : A development environment tool that is used as a playground for UI components. It allows us, the developers, to create and test components in isolation.
 - [**Sentry**](https://sentry.io/) : For real-time error tracking and monitoring
