@@ -37,6 +37,7 @@ export const Button = ({
   const mode = primary
     ? "storybook-button--primary"
     : "storybook-button--secondary";
+
   return (
     <button
       className={["storybook-button", `storybook-button--${size}`, mode].join(

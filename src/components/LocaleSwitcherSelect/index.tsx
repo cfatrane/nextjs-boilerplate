@@ -27,6 +27,7 @@ export default function LocaleSwitcherSelect({
 
   function onSelectChange(value: string) {
     const nextLocale = value;
+
     startTransition(() => {
       router.replace(pathname, { locale: nextLocale });
     });
