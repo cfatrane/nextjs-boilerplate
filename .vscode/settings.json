@@ -16,13 +16,13 @@
 
   // F
   // Files
+  "files.associations": { "*.css": "tailwindcss" },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
 
-  // P
-  // Prettier
-  "prettier.singleQuote": true,
+  // i18n
+  "i18n-ally.localesPaths": ["messages"],
 
   "[dockerfile]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
@@ -36,6 +36,6 @@
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "i18n-ally.localesPaths": ["messages"],
+
   "cSpell.language": "en,fr"
 }

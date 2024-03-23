@@ -134,7 +134,22 @@
         }
       }
     ],
+    // P
+    // P
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      { "blankLine": "always", "prev": "*", "next": "function" },
+
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
+      }
+    ],
     "prettier/prettier": ["error"],
+
     // React
     "react/jsx-newline": ["warn"],
     "react/jsx-no-useless-fragment": ["error", { "allowExpressions": true }],
