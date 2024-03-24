@@ -37,7 +37,7 @@ module.exports = {
   rules: {
     // C
     camelcase: "warn",
-    "capitalized-comments": "warn",
+    "capitalized-comments": "off",
     // D
     "default-param-last": ["error"],
     // E
@@ -164,13 +164,15 @@ module.exports = {
       },
     ],
     "prefer-const": "error",
+    "prefer-destructuring": "error",
     "prefer-object-spread": "warn",
     "prettier/prettier": ["error"],
     // R
     "require-await": "error",
     // S
-    "sort-keys": ["warn", "asc", { natural: true, minKeys: 5 }],
+    "sort-keys": ["off", "asc", { natural: true, minKeys: 5 }],
     "sort-vars": "error",
+    "sort-imports": ["off"],
 
     // React
     // eslint-disable-next-line sort-keys
