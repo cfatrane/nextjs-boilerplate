@@ -1,4 +1,10 @@
 {
+  // B
+  "better-comments.highlightPlainText": true,
+
+  // C
+  "cSpell.language": "en,fr",
+
   // E
   // Editor
   "editor.bracketPairColorization.enabled": true,
@@ -22,20 +28,5 @@
   "files.trimTrailingWhitespace": true,
 
   // i18n
-  "i18n-ally.localesPaths": ["messages"],
-
-  "[dockerfile]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[ignore]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[properties]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-
-  "cSpell.language": "en,fr"
+  "i18n-ally.localesPaths": ["messages"]
 }
