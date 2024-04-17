@@ -7,8 +7,6 @@ module.exports = {
   extends: [
     "next/core-web-vitals",
     "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
     "plugin:react/jsx-runtime",
     "plugin:tailwindcss/recommended",
     "plugin:import/recommended",
@@ -65,12 +63,12 @@ module.exports = {
             position: "before",
           },
           {
-            pattern: "next",
+            pattern: "next**",
             group: "builtin",
             position: "before",
           },
           {
-            pattern: "vite",
+            pattern: "next/**",
             group: "builtin",
             position: "before",
           },
@@ -111,11 +109,6 @@ module.exports = {
           },
           {
             pattern: "@/redux/**",
-            group: "internal",
-            position: "after",
-          },
-          {
-            pattern: "@/routes/**",
             group: "internal",
             position: "after",
           },
@@ -201,13 +194,6 @@ module.exports = {
         ],
       },
     ],
-
-    // "react-refresh/only-export-components": [
-    //   "warn",
-    //   {
-    //     "allowConstantExport": true
-    //   }
-    // ]
   },
   settings: {
     "import/resolver": {
