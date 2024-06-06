@@ -1,0 +1,140 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:tailwindcss/recommended",
+    "prettier"
+  ],
+  "rules": {
+    // C
+    "camelcase": "warn",
+    "capitalized-comments": "off",
+    // D
+    "default-param-last": ["error"],
+    // E
+    "eqeqeq": "error",
+    // I
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "object",
+          "type",
+          "index",
+          "unknown"
+        ],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "next",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "@/api/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/assets/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/components/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/constants/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/helpers/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/hooks/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/i18n/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/styles/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/types/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/utils/**",
+            "group": "internal",
+            "position": "before"
+          }
+        ],
+        "distinctGroup": true,
+        "pathGroupsExcludedImportTypes": ["react"],
+        "alphabetize": {
+          "order": "asc" /* Sort in ascending order. Options: ['ignore', 'asc', 'desc'] */,
+          "caseInsensitive": true /* Ignore case. Options: [true, false] */
+        }
+      }
+    ],
+    // M
+    "max-params": ["warn", 3],
+    // N
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-empty-function": "warn",
+    "no-param-reassign": "error",
+    // P
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      { "blankLine": "always", "prev": "*", "next": "function" },
+      { "blankLine": "always", "prev": "*", "next": "block-like" },
+
+      { "blankLine": "always", "prev": ["import"], "next": "*" },
+      {
+        "blankLine": "any",
+        "prev": ["import"],
+        "next": ["import"]
+      },
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
+      }
+    ],
+    "prefer-const": "error",
+    "prefer-destructuring": "error",
+    "prefer-object-spread": "warn",
+    // S
+    "sort-keys": ["off", "asc", { "natural": true, "minKeys": 5 }],
+    "sort-vars": "error",
+    "sort-imports": ["off"],
+
+    "react/boolean-prop-naming": ["warn"],
+    "react/jsx-newline": ["warn"],
+    "react/jsx-no-useless-fragment": ["error", { "allowExpressions": true }],
+    "react/jsx-sort-props": ["warn", { "ignoreCase": true }]
+  }
+}
