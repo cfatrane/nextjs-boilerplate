@@ -16,9 +16,5 @@
       "title": "Deploy",
       "text": "Instantly deploy your Next.js site to a shareable URL with Vercel."
     }
-  },
-  "LocaleSwitcher": {
-    "label": "Change language",
-    "locale": "{locale, select, fr {🇫🇷 Français} en {🇺🇸 English} other {Unknown}}"
   }
 }
