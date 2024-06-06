@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import { useTranslations } from "next-intl";
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
             target="_blank"
           >
             By{" "}
+
             <Image
               alt="Vercel Logo"
               className="dark:invert"
@@ -52,6 +54,7 @@ export default function Home() {
         >
           <h2 className="mb-3 text-2xl font-semibold">
             {t("Docs.title")}{" "}
+
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -70,6 +73,7 @@ export default function Home() {
         >
           <h2 className="mb-3 text-2xl font-semibold">
             {t("Learn.title")}{" "}
+
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -88,6 +92,7 @@ export default function Home() {
         >
           <h2 className="mb-3 text-2xl font-semibold">
             {t("Templates.title")}{" "}
+
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -106,6 +111,7 @@ export default function Home() {
         >
           <h2 className="mb-3 text-2xl font-semibold">
             {t("Deploy.title")}{" "}
+
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
