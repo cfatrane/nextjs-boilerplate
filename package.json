@@ -11,7 +11,8 @@
     "format": "npx prettier . --check",
     "format:fix": "npx prettier . --write",
     "prepare": "husky install",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
