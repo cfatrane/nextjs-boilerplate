@@ -10,7 +10,8 @@
     "lint:fix": "next lint --fix",
     "format": "npx prettier . --check",
     "format:fix": "npx prettier . --write",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "jest"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
@@ -26,6 +27,8 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^16.0.0",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -33,8 +36,11 @@
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.3",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jest": "^28.6.0",
     "eslint-plugin-tailwindcss": "^3.17.3",
     "husky": "^9.0.11",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.2.5",
     "postcss": "^8",
     "prettier": "^3.3.1",
