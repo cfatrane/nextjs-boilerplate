@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
+  const t = useTranslations("Home");
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -17,7 +20,6 @@ export default function Home() {
             target="_blank"
           >
             By{" "}
-
             <Image
               alt="Vercel Logo"
               className="dark:invert"
@@ -49,15 +51,14 @@ export default function Home() {
           target="_blank"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-
+            {t("Docs.title")}{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
           </h2>
 
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
+            {t("Docs.text")}
           </p>
         </a>
 
@@ -68,15 +69,14 @@ export default function Home() {
           target="_blank"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-
+            {t("Learn.title")}{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
           </h2>
 
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
+            {t("Learn.text")}
           </p>
         </a>
 
@@ -87,15 +87,14 @@ export default function Home() {
           target="_blank"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-
+            {t("Templates.title")}{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
           </h2>
 
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
+            {t("Templates.text")}
           </p>
         </a>
 
@@ -106,15 +105,14 @@ export default function Home() {
           target="_blank"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-
+            {t("Deploy.title")}{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
           </h2>
 
           <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+            {t("Deploy.text")}
           </p>
         </a>
       </div>
