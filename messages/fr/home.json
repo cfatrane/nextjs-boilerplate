@@ -1,0 +1,20 @@
+{
+  "Home": {
+    "Docs": {
+      "title": "Documents",
+      "text": "Trouvez des informations détaillées sur les fonctionnalités et l'API de Next.js."
+    },
+    "Learn": {
+      "title": "Apprendre",
+      "text": "Apprenez à connaître Next.js dans un cours interactif avec des quiz !"
+    },
+    "Templates": {
+      "title": "Templates",
+      "text": "Découvrez les modèles de démarrage pour Next.js."
+    },
+    "Deploy": {
+      "title": "Deployer",
+      "text": "Déployez instantanément votre site Next.js vers une URL partageable avec Vercel."
+    }
+  }
+}
