@@ -66,17 +66,13 @@ export default function SignUpPage() {
             Create an account
           </Button>
 
-          <Button className="w-full" variant="outline">
-            Sign up with GitHub
-          </Button>
-
           <ProviderFormList page="signup" />
         </div>
 
         <div className="mt-4 text-center text-sm">
           Already have an account?{" "}
 
-          <Link className="underline" href="#">
+          <Link className="underline" href="/signin">
             Sign in
           </Link>
         </div>

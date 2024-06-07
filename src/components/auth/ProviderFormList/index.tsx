@@ -1,7 +1,8 @@
 import { redirect } from "next/navigation";
 
-import { providerMap, signIn } from "@/auth";
 import { AuthError } from "next-auth";
+
+import { providerMap, signIn } from "@/auth";
 
 import { Button } from "@/components/ui/button";
 
