@@ -14,16 +14,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
-import { HeaderItem, HeaderItemMobile } from "./HeaderItem";
+import { HEADER_ITEMS } from "@/routes/protectedRoutes";
 
-const headerItems = [
-  { label: "Dashboard", href: "/dashboard" },
-  { label: "Orders", href: "/orders" },
-  { label: "Products", href: "/products" },
-  { label: "Customers", href: "/customers" },
-  { label: "Analytics", href: "/analytics" },
-  { label: "Settings", href: "/settings" },
-];
+import { HeaderItem, HeaderItemMobile } from "./HeaderItem";
 
 function Header() {
   return (
@@ -38,7 +31,7 @@ function Header() {
           <span className="sr-only">Acme Inc</span>
         </Link>
 
-        {headerItems.map((item) => (
+        {HEADER_ITEMS.map((item) => (
           <HeaderItem href={item.href} key={item.label} label={item.label} />
         ))}
       </nav>
@@ -63,7 +56,7 @@ function Header() {
               <span className="sr-only">Acme Inc</span>
             </Link>
 
-            {headerItems.map((item) => (
+            {HEADER_ITEMS.map((item) => (
               <HeaderItemMobile
                 href={item.href}
                 key={item.label}
