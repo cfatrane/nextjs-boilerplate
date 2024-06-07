@@ -13,6 +13,8 @@
     "lokalise.i18n-ally",
     "mikestead.dotenv",
     "orta.vscode-jest",
+    "prisma.prisma",
+    "resend.react-email-preview",
     "sonarsource.sonarlint-vscode",
     "streetsidesoftware.code-spell-checker",
     "usernamehw.errorlens",
