@@ -22,6 +22,7 @@ const headerItems = [
   { label: "Products", href: "/products" },
   { label: "Customers", href: "/customers" },
   { label: "Analytics", href: "/analytics" },
+  { label: "Settings", href: "/settings" },
 ];
 
 function Header() {
