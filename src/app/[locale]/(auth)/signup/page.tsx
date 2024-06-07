@@ -1,8 +1,4 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
-
-import { providerMap, signIn } from "@/auth";
-import { AuthError } from "next-auth";
 
 import ProviderFormList from "@/components/auth/ProviderFormList";
 import { Button } from "@/components/ui/button";
@@ -15,8 +11,6 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-
-const SIGNIN_ERROR_URL = "/error";
 
 export default function SignUpPage() {
   return (

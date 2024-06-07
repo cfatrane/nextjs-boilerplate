@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { useTranslations } from "next-intl";
+
 import ProviderFormList from "@/components/auth/ProviderFormList";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,18 +14,16 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-const SIGNIN_ERROR_URL = "/error";
-
 // * Link : https://authjs.dev/guides/pages/signin
-export default async function SignInPage() {
+export default function SignInPage() {
+  const t = useTranslations("Auth");
+
   return (
     <Card className="mx-auto max-w-sm">
       <CardHeader>
-        <CardTitle className="text-2xl">Login</CardTitle>
+        <CardTitle className="text-2xl">{t("SignIn.title")}</CardTitle>
 
-        <CardDescription>
-          Enter your email below to login to your account
-        </CardDescription>
+        <CardDescription>{t("SignIn.subtitle")}</CardDescription>
       </CardHeader>
 
       <CardContent>
@@ -47,7 +47,7 @@ export default async function SignInPage() {
                 className="ml-auto inline-block text-sm underline"
                 href="/forgot-password"
               >
-                Forgot your password?
+                {t("SignIn.forgotPassword")}
               </Link>
             </div>
 
