@@ -4,6 +4,11 @@ import Apple from "next-auth/providers/apple";
 import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import { PrismaClient } from "@prisma/client";
+
+import authConfig from "./auth.config";
+
 // * Link : https://authjs.dev/guides/pages/signin
 const providers: Provider[] = [Apple, GitHub, Google];
 
@@ -17,8 +22,11 @@ export const providerMap = providers.map((provider) => {
   }
 });
 
+const prisma = new PrismaClient();
+
+// * Link : https://authjs.dev/guides/edge-compatibility
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers,
+  adapter: PrismaAdapter(prisma),
   pages: {
     signIn: "/signin",
     // signOut: "/auth/signout",
@@ -26,4 +34,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     // verifyRequest: "/auth/verify-request", // (used for check email message)
     // newUser: "/auth/new-user", // New users will be directed here on first sign in (leave the property out if not of interest)
   },
+  session: { strategy: "jwt" },
+  secret: process.env.AUTH_SECRET,
+  ...authConfig,
 });
