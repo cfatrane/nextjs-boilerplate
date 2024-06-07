@@ -26,12 +26,9 @@ WIP
 
 ### Soon ⏱️
 
-- **Authentication**
 - **Github Actions** : A continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline.
 - [**Storybook**](https://storybook.js.org/) : A development environment tool that is used as a playground for UI components. It allows us, the developers, to create and test components in isolation.
 - [**Sentry**](https://sentry.io/) : For real-time error tracking and monitoring
-- [**Stripe**](https://stripe.com/) : Stripe powers online and in-person payment processing and financial solutions for businesses of all sizes.
-- [**Redux Toolkit**](https://redux-toolkit.js.org/)
 
 ## Getting Started 🤔
 
@@ -63,8 +60,6 @@ lint "next lint",
 lint:fix "next lint --fix",
 prepare "husky install",
 clean "rm -rf node_modules yarn.lock",
-storybook "storybook dev -p 6006",
-build-storybook "storybook build"
 ```
 
 ## Project Structure 📁
@@ -97,6 +92,10 @@ build-storybook "storybook build"
 ```
 
 ### Auth Js
+
+WIP
+
+### Eslint
 
 WIP
 
