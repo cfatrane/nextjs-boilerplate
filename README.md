@@ -11,6 +11,7 @@ WIP
 
 ## Features 🛠️
 
+- [**Auth Js**](https://authjs.dev/) : An open-source project built by individual contributors.
 - [**Crowdin**](https://crowdin.com/) : A localization management platform that aims to make the translation process more efficient.
 - [**Husky** 🐶](https://typicode.github.io/husky/) : Automatically lint your commit messages, code, and run tests upon committing or pushing.
 - [**i18n**](https://next-intl-docs.vercel.app/) : The process of designing and developing software so it can be adapted for users of different cultures and languages
@@ -95,11 +96,11 @@ build-storybook "storybook build"
 └── tsconfig.json         #
 ```
 
-### i18n
+### Auth Js
 
 WIP
 
-### Shadcn
+### i18n / Translation 🗺️
 
 WIP
 
@@ -124,10 +125,6 @@ The `.test.js` / `.spec.js` files (or the `__tests__`folders) can be located at 
 We recommend to put the test files (or `__tests__` folders) next to the code they are testing so that relative imports appear shorter. For example, if `App.test.js` and `App.js` are in the same folder, the test only needs to `import App from './App'` instead of a long relative path. Collocation also helps find tests more quickly in larger projects.
 
 To run test `yarn test`
-
-## Translation 🗺️
-
-WIP
 
 ## VSCode Extensions 💻
 
@@ -190,12 +187,27 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Suggestions ☝️
 
+### Auth
+
+- [Clerk](https://clerk.com/docs)
+
 ### Components
 
+- [shadcn](https://ui.shadcn.com/)
 - [MUI](https://mui.com/core/)
+- [Next UI](https://nextui.org/)
+- [Ant Design](https://ant.design/)
+- [Aceternity UI](https://ui.aceternity.com/)
+- [Preline UI](https://preline.co/index.html)
+
+### Database
+
+- [Turso](https://turso.tech/)
+- [Planetscale](https://planetscale.com/)
 
 ### State Management
 
+- [Redux + Next](https://redux-toolkit.js.org/usage/nextjs)
 - [Recoil](https://recoiljs.org/)
 - [Zustand](https://github.com/pmndrs/zustand)
 
@@ -203,3 +215,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 - [Joi](https://joi.dev/)
 - [Yup](https://github.com/jquense/yup)
+- [Zod](https://zod.dev/)
