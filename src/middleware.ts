@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
 
 import { auth } from "@/auth";
+import { locales } from "@/i18n";
 
 import { HEADER_ITEMS } from "@/routes/protectedRoutes";
 
@@ -12,8 +13,6 @@ import { HEADER_ITEMS } from "@/routes/protectedRoutes";
 const protectedRoutes = HEADER_ITEMS.map((item) => item.href); // Routes that require authentication
 const publicRoutes = ["/signin", "/signup", "/forgot-password"]; // Routes that don't require authentication
 const baseRoute = "/dashboard";
-
-const locales = ["en", "fr"];
 
 const pathNameRegex = (pages: string[]): RegExp => {
   const publicPathnameRegex = RegExp(
