@@ -62,7 +62,7 @@ export default function SignInPage() {
         </div>
 
         <div className="mt-4 text-center text-sm">
-          Don&apos;t have an account?{" "}
+          <span>Don&apos;t have an account? </span>
 
           <Link className="underline" href="/signup">
             Sign up

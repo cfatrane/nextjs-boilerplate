@@ -70,7 +70,7 @@ export default function SignUpPage() {
         </div>
 
         <div className="mt-4 text-center text-sm">
-          Already have an account?{" "}
+          <span>Already have an account? </span>
 
           <Link className="underline" href="/signin">
             Sign in

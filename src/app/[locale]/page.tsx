@@ -20,7 +20,7 @@ export default function Home() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            By{" "}
+            <span>By </span>
 
             <Image
               alt="Vercel Logo"
@@ -53,7 +53,7 @@ export default function Home() {
           target="_blank"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            {t("Docs.title")}{" "}
+            <span>{t("Docs.title")} </span>
 
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
@@ -72,7 +72,7 @@ export default function Home() {
           target="_blank"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            {t("Learn.title")}{" "}
+            <span>{t("Learn.title")} </span>
 
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
@@ -91,7 +91,7 @@ export default function Home() {
           target="_blank"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            {t("Templates.title")}{" "}
+            <span>{t("Templates.title")} </span>
 
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
@@ -110,7 +110,7 @@ export default function Home() {
           target="_blank"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            {t("Deploy.title")}{" "}
+            <span>{t("Deploy.title")} </span>
 
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
