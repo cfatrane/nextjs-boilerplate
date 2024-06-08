@@ -15,16 +15,15 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 
-// * Link : https://authjs.dev/guides/pages/signin
-export default function SignInPage() {
+function ForgotPasswordPage() {
   const t = useTranslations("Auth");
 
   return (
     <Card className="mx-auto max-w-sm">
       <CardHeader>
-        <CardTitle className="text-2xl">{t("SignIn.title")}</CardTitle>
+        <CardTitle className="text-2xl">{t("ForgotPassword.title")}</CardTitle>
 
-        <CardDescription>{t("SignIn.subtitle")}</CardDescription>
+        <CardDescription>{t("ForgotPassword.subtitle")}</CardDescription>
       </CardHeader>
 
       <CardContent>
@@ -40,44 +39,20 @@ export default function SignInPage() {
             />
           </div>
 
-          <div className="grid gap-2">
-            <div className="flex items-center">
-              <Label htmlFor="password">Password</Label>
-
-              <Link
-                className="ml-auto inline-block text-sm underline"
-                href="/forgot-password"
-              >
-                {t("SignIn.forgotPassword")}
-              </Link>
-            </div>
-
-            <Input id="password" required type="password" />
-          </div>
-
           <Button className="w-full" type="submit">
-            {t("SignIn.button")}
+            {t("ForgotPassword.button")}
           </Button>
-
-          <div className="my-4 flex items-center justify-center gap-2">
-            <Separator className="shrink" />
-
-            <p className="px-4">ou</p>
-
-            <Separator className="shrink" />
-          </div>
-
-          <ProviderFormList page="signin" />
         </div>
 
         <div className="mt-4 text-center text-sm">
-          <span>Don&apos;t have an account? </span>
+          <span>Vous n&apos;avez pas de compte ? </span>
 
           <Link className="underline" href="/signup">
-            Sign up
+            S&apos;inscrire
           </Link>
         </div>
       </CardContent>
     </Card>
   );
 }
+export default ForgotPasswordPage;
