@@ -16,6 +16,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import { HEADER_ITEMS } from "@/routes/protectedRoutes";
 
+import { ThemeToggle } from "../ThemeToggle";
 import { HeaderItem, HeaderItemMobile } from "./HeaderItem";
 
 function Header() {
@@ -103,6 +104,8 @@ function Header() {
             <DropdownMenuItem>Logout</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+
+        <ThemeToggle />
       </div>
     </header>
   );
