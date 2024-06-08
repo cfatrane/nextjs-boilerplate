@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { useTranslations } from "next-intl";
+
 import ProviderFormList from "@/components/auth/ProviderFormList";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,16 +13,17 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 
 export default function SignUpPage() {
+  const t = useTranslations("Auth");
+
   return (
     <Card className="mx-auto max-w-sm">
       <CardHeader>
-        <CardTitle className="text-xl">Sign Up</CardTitle>
+        <CardTitle className="text-2xl">{t("SignUp.title")}</CardTitle>
 
-        <CardDescription>
-          Enter your information to create an account
-        </CardDescription>
+        <CardDescription>{t("SignUp.subtitle")}</CardDescription>
       </CardHeader>
 
       <CardContent>
@@ -63,8 +66,16 @@ export default function SignUpPage() {
           </div>
 
           <Button className="w-full" type="submit">
-            Create an account
+            {t("SignUp.button")}
           </Button>
+
+          <div className="my-4 flex items-center justify-center gap-2">
+            <Separator className="shrink" />
+
+            <p className="px-4">ou</p>
+
+            <Separator className="shrink" />
+          </div>
 
           <ProviderFormList page="signup" />
         </div>
