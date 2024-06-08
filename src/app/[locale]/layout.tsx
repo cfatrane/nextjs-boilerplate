@@ -5,7 +5,10 @@ import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
+import { auth } from "@/auth";
+
 import Header from "@/components/shared/Header";
+import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 import "./globals.css";
@@ -26,15 +29,36 @@ export default async function RootLayout({
 }>) {
   // Providing all messages to the client
   // side is the easiest way to get started
+  const session = await auth();
   const messages = await getMessages();
 
   return (
     <html lang={locale}>
       <body className={inter.className} suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
-          <Header />
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            disableTransitionOnChange
+            enableSystem
+          >
+            <TooltipProvider>
+              {session ? (
+                <>
+                  {/* User Connected : Main Layout */}
+                  <Header />
 
-          <TooltipProvider>{children}</TooltipProvider>
+                  {children}
+                </>
+              ) : (
+                <>
+                  {/* User Not Connected : Auth Layout */}
+
+                  {children}
+                </>
+              )}
+            </TooltipProvider>
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>
