@@ -18,11 +18,11 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@auth/prisma-adapter": "^2.2.0",
+    "@auth/prisma-adapter": "^2.3.0",
     "@hookform/resolvers": "^3.6.0",
-    "@neondatabase/serverless": "^0.9.3",
-    "@prisma/adapter-neon": "^5.15.0",
-    "@prisma/client": "^5.15.0",
+    "@neondatabase/serverless": "^0.9.1",
+    "@prisma/adapter-neon": "^5.15.1",
+    "@prisma/client": "^5.15.1",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
@@ -71,7 +71,7 @@
     "postcss": "^8",
     "prettier": "^3.3.1",
     "prettier-plugin-tailwindcss": "^0.6.1",
-    "prisma": "^5.15.0",
+    "prisma": "^5.15.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },
