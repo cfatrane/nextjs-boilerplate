@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
 
 import { auth } from "@/auth";
-import { locales } from "@/i18n";
+import { defaultLocale, locales } from "@/config";
 
 import { HEADER_ITEMS } from "@/routes/protectedRoutes";
 
@@ -28,7 +28,7 @@ const pathNameRegex = (pages: string[]): RegExp => {
 const intlMiddleware = createIntlMiddleware({
   locales,
   localePrefix: "as-needed",
-  defaultLocale: "en",
+  defaultLocale,
 });
 
 // Combined middleware function
