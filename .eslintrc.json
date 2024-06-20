@@ -1,10 +1,14 @@
 {
   "extends": [
     "next/core-web-vitals",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
     "plugin:jest/recommended",
     "plugin:tailwindcss/recommended",
     "plugin:prettier/recommended"
   ],
+  // Avoid run eslint on shadcn folder
+  "ignorePatterns": ["**/components/ui/**"],
   "rules": {
     // C
     "camelcase": "warn",
@@ -51,5 +55,11 @@
     "react/jsx-newline": ["warn"],
     "react/jsx-no-useless-fragment": ["error", { "allowExpressions": true }],
     "react/jsx-sort-props": ["warn", { "ignoreCase": true }]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": true,
+      "node": true
+    }
   }
 }
