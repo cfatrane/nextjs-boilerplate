@@ -5,7 +5,8 @@ import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import { PrismaClient } from "@prisma/client";
+
+import prisma from "@/lib/prisma";
 
 import authConfig from "./auth.config";
 
@@ -21,8 +22,6 @@ export const providerMap = providers.map((provider) => {
     return { id: provider.id, name: provider.name };
   }
 });
-
-const prisma = new PrismaClient();
 
 // * Link : https://authjs.dev/guides/edge-compatibility
 export const { handlers, signIn, signOut, auth } = NextAuth({
