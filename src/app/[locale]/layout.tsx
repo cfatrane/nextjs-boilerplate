@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
-import { auth } from "@/auth";
+import { ClerkProvider, SignedIn, SignedOut } from "@clerk/nextjs";
 
 import Header from "@/components/shared/Header";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -29,38 +29,32 @@ export default async function RootLayout({
 }>) {
   // Providing all messages to the client
   // side is the easiest way to get started
-  const session = await auth();
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
-      <body className={inter.className} suppressHydrationWarning>
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            disableTransitionOnChange
-            enableSystem
-          >
-            <TooltipProvider>
-              {session ? (
-                <>
-                  {/* User Connected : Main Layout */}
+    <ClerkProvider>
+      <html lang={locale}>
+        <body className={inter.className} suppressHydrationWarning>
+          <NextIntlClientProvider messages={messages}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              disableTransitionOnChange
+              enableSystem
+            >
+              <TooltipProvider>
+                <SignedOut>
                   <Header />
 
                   {children}
-                </>
-              ) : (
-                <>
-                  {/* User Not Connected : Auth Layout */}
+                </SignedOut>
 
-                  {children}
-                </>
-              )}
-            </TooltipProvider>
-          </ThemeProvider>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+                <SignedIn>{children}</SignedIn>
+              </TooltipProvider>
+            </ThemeProvider>
+          </NextIntlClientProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
