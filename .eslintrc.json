@@ -5,6 +5,7 @@
     "plugin:import/typescript",
     "plugin:jest/recommended",
     "plugin:tailwindcss/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
     "plugin:prettier/recommended"
   ],
   // Avoid run eslint on shadcn folder
@@ -49,7 +50,6 @@
     // S
     "sort-keys": ["off", "asc", { "natural": true, "minKeys": 5 }],
     "sort-vars": "error",
-    "sort-imports": ["off"],
 
     "react/boolean-prop-naming": ["warn"],
     "react/jsx-newline": ["warn"],
