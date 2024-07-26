@@ -11,7 +11,7 @@ WIP
 
 ## Features 🛠️
 
-- [**Auth Js**](https://authjs.dev/) : An open-source project built by individual contributors.
+- [**Clerk**](https://clerk.com/) : A complete suite of embeddable UIs, flexible APIs, and admin dashboards to authenticate and manage your users.
 - [**Crowdin**](https://crowdin.com/) : A localization management platform that aims to make the translation process more efficient.
 - [**Husky** 🐶](https://typicode.github.io/husky/) : Automatically lint your commit messages, code, and run tests upon committing or pushing.
 - [**i18n**](https://next-intl-docs.vercel.app/) : The process of designing and developing software so it can be adapted for users of different cultures and languages
