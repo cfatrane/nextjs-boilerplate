@@ -11,6 +11,7 @@ import Header from "@/components/shared/Header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
+import Providers from "../providers";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,24 +36,26 @@ export default async function RootLayout({
     <ClerkProvider>
       <html lang={locale}>
         <body className={inter.className} suppressHydrationWarning>
-          <NextIntlClientProvider messages={messages}>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              disableTransitionOnChange
-              enableSystem
-            >
-              <TooltipProvider>
-                <SignedOut>
-                  <Header />
+          <Providers>
+            <NextIntlClientProvider messages={messages}>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                disableTransitionOnChange
+                enableSystem
+              >
+                <TooltipProvider>
+                  <SignedOut>
+                    <Header />
 
-                  {children}
-                </SignedOut>
+                    {children}
+                  </SignedOut>
 
-                <SignedIn>{children}</SignedIn>
-              </TooltipProvider>
-            </ThemeProvider>
-          </NextIntlClientProvider>
+                  <SignedIn>{children}</SignedIn>
+                </TooltipProvider>
+              </ThemeProvider>
+            </NextIntlClientProvider>
+          </Providers>
         </body>
       </html>
     </ClerkProvider>
