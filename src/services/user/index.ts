@@ -2,8 +2,6 @@
 
 import prisma from "@/lib/prisma";
 
-var bcrypt = require("bcryptjs");
-
 export const getAllUsers = async () => {
   const users = await prisma.user.findMany();
 
@@ -14,30 +12,6 @@ export const getUserByEmail = async (email: string) => {
   const user = await prisma.user.findUnique({
     where: {
       email,
-    },
-  });
-
-  return user;
-};
-
-export const createUser = async (email: string, password: string) => {
-  const existingUser = await prisma.user.findUnique({
-    where: {
-      email,
-    },
-  });
-
-  if (existingUser) {
-    throw new Error("User already exists");
-  }
-
-  const salt = bcrypt.genSaltSync(10);
-  const hashedPassword = bcrypt.hashSync(password, salt);
-
-  const user = await prisma.user.create({
-    data: {
-      email,
-      password: hashedPassword,
     },
   });
 
