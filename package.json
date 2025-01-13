@@ -21,7 +21,7 @@
     "@auth/prisma-adapter": "^2.3.0",
     "@clerk/nextjs": "^5.2.6",
     "@hookform/resolvers": "^3.6.0",
-    "@neondatabase/serverless": "^0.9.1",
+    "@neondatabase/serverless": "^0.10.4",
     "@prisma/adapter-neon": "^6.1.0",
     "@prisma/client": "^6.2.1",
     "@radix-ui/react-checkbox": "^1.0.4",
