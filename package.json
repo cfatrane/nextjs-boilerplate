@@ -10,7 +10,7 @@
     "lint:fix": "next lint --fix",
     "format": "prettier . --check",
     "format:fix": "prettier . --write",
-    "prepare": "husky install",
+    "prepare": "husky",
     "test": "jest",
     "test:watch": "jest --watch",
     "studio": "prisma studio",
