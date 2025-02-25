@@ -95,6 +95,68 @@ clean "rm -rf node_modules yarn.lock",
 
 WIP
 
+### Commitlint
+
+commitlint checks if your commit messages meet the [conventional commit format](https://conventionalcommits.org).
+
+In general the pattern mostly looks like this:
+
+```sh
+type(scope?): subject  #scope is optional; multiple scopes are supported (current delimiter options: "/", "\" and ",")
+```
+
+Real world examples can look like this:
+
+```text
+chore: run tests on travis ci
+```
+
+```text
+fix(server): send cors headers
+```
+
+```text
+feat(blog): add comment section
+```
+
+Common types according to [commitlint-config-conventional (based on the Angular convention)](https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional#type-enum) can be:
+
+- build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+- chore: Other changes that don't modify src or test files
+- ci: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+- docs: Documentation only changes
+- feat: A new feature
+- fix: A bug fix
+- perf: A code change that improves performance
+- refactor: A code change that neither fixes a bug nor adds a feature
+- revert: Reverts a previous commit
+- style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- test: Adding missing tests or correcting existing tests
+
+#### Git Commit Messages
+
+- Use the present tense ("Add feature" not "Added feature")
+- Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
+- Limit the first line to 72 characters or less
+- Reference issues and pull requests liberally after the first line
+- When only changing documentation, include `[ci skip]` in the commit title
+- Consider starting the commit message with an applicable emoji:
+  - 🎨 `:art:` when improving the format/structure of the code
+  - 🐎 `:racehorse:` when improving performance
+  - 🚱 `:non-potable_water:` when plugging memory leaks
+  - 📝 `:memo:` when writing docs
+  - 🐧 `:penguin:` when fixing something on Linux
+  - 🍎 `:apple:` when fixing something on macOS
+  - 🏁 `:checkered_flag:` when fixing something on Windows
+  - 🐛 `:bug:` when fixing a bug
+  - 🔥 `:fire:` when removing code or files
+  - 💚 `:green_heart:` when fixing the CI build
+  - ✅ `:white_check_mark:` when adding tests
+  - 🔒 `:lock:` when dealing with security
+  - ⬆️ `:arrow_up:` when upgrading dependencies
+  - ⬇️ `:arrow_down:` when downgrading dependencies
+  - 👕 `:shirt:` when removing linter warnings
+
 ### Eslint
 
 WIP
