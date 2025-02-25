@@ -1,5 +1,6 @@
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
+import eslintConfigPrettier from "eslint-config-prettier";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -14,28 +15,33 @@ const compat = new FlatCompat({
 export default [
   ...compat.extends(
     "next/core-web-vitals",
+    "next/typescript",
     "plugin:jest/recommended",
     "plugin:tailwindcss/recommended",
-    "plugin:prettier/recommended",
   ),
+  eslintConfigPrettier,
   {
     rules: {
-      camelcase: "warn",
+      // C
+      camelcase: "off",
       "capitalized-comments": "off",
-      "default-param-last": ["error"],
+      "default-param-last": "error",
+
+      // E
       eqeqeq: "error",
       "max-params": ["warn", 3],
 
+      // N
       "no-console": [
         "warn",
         {
           allow: ["warn", "error"],
         },
       ],
-
       "no-empty-function": "warn",
       "no-param-reassign": "error",
 
+      // P
       "padding-line-between-statements": [
         "error",
         {
@@ -74,7 +80,6 @@ export default [
           next: ["const", "let", "var"],
         },
       ],
-
       "prefer-const": "error",
       "prefer-destructuring": "error",
       "prefer-object-spread": "warn",
@@ -87,19 +92,18 @@ export default [
           minKeys: 5,
         },
       ],
-
       "sort-vars": "error",
       "sort-imports": ["off"],
+
+      // React
       "react/boolean-prop-naming": ["warn"],
       "react/jsx-newline": ["warn"],
-
       "react/jsx-no-useless-fragment": [
         "error",
         {
           allowExpressions: true,
         },
       ],
-
       "react/jsx-sort-props": [
         "warn",
         {
