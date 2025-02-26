@@ -22,13 +22,20 @@
     "<THIRD_PARTY_MODULES>",
     "^@/api/(.*)$",
     "^@/assets/(.*)$",
+    "^@/db/(.*)$",
+    "^@/containers/(.*)$",
     "^@/components/(.*)$",
-    "^@/constants/(.*)$",
     "^@/config/(.*)$",
+    "^@/constants/(.*)$",
+    "^@/context/(.*)$",
     "^@/hooks/(.*)$",
     "^@/i18n/(.*)$",
     "^@/lib/(.*)$",
+    "^@/navigation/(.*)$",
     "^@/routes/(.*)$",
+    "^@/routing/(.*)$",
+    "^@/services/(.*)$",
+    "^@/schema/(.*)$",
     "^@/styles/(.*)$",
     "^@/types/(.*)$",
     "^@/utils/(.*)$",
@@ -37,5 +44,6 @@
   "plugins": [
     "@trivago/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss"
-  ]
+  ],
+  "tailwindConfig": "./tailwind.config.ts"
 }

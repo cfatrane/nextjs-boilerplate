@@ -1,6 +1,53 @@
 "use server";
 
+import { User } from "@prisma/client";
+
 import prisma from "@/lib/prisma";
+
+// Create
+type CreateUserProps = Pick<
+  User,
+  | "clerkUserId"
+  | "createdAt"
+  | "email"
+  | "firstName"
+  | "hasVerifiedEmailAddress"
+  | "imageUrl"
+  | "lastName"
+  | "lastSignInAt"
+  | "updatedAt"
+  | "username"
+>;
+
+export const createUser = async ({
+  clerkUserId,
+  createdAt,
+  email,
+  firstName,
+  hasVerifiedEmailAddress,
+  imageUrl,
+  lastName,
+  lastSignInAt,
+  username,
+  updatedAt,
+}: CreateUserProps) => {
+  const user = await prisma.user.create({
+    data: {
+      clerkUserId,
+      createdAt,
+      email,
+      firstName,
+      hasVerifiedEmailAddress,
+      imageUrl,
+      lastName,
+      lastSignInAt,
+      updatedAt,
+      username,
+    },
+  });
+
+  return user;
+};
 
 export const getAllUsers = async () => {
   const users = await prisma.user.findMany();
@@ -18,17 +65,18 @@ export const getUserByEmail = async (email: string) => {
   return user;
 };
 
+// Update
 export const updateUser = async ({
-  where,
+  clerkUserId,
   data,
 }: {
-  where: any;
+  clerkUserId: string;
   data: object;
 }) => {
-  const updateUser = await prisma.user.update({
-    where: where,
+  const updatedUser = await prisma.user.update({
+    where: { clerkUserId },
     data,
   });
 
-  return updateUser;
+  return updatedUser;
 };
