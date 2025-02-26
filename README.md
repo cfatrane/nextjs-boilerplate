@@ -208,6 +208,59 @@ WIP
 
 WIP
 
+### Prisma
+
+```sh
+# Set up a new Prisma project
+$ prisma init
+# Generate artifacts (e.g. Prisma Client)
+$ prisma generate
+# Browse your data
+$ prisma studio
+# Create migrations from your Prisma schema, apply them to the database, generate artifacts (e.g. Prisma Client)
+$ prisma migrate dev
+# Pull the schema from an existing database, updating the Prisma schema
+$ prisma db pull
+# Push the Prisma schema state to the database
+$ prisma db push
+# Validate your Prisma schema
+$ prisma validate
+# Format your Prisma schema
+$ prisma format
+# Display Prisma version info
+$ prisma version
+# Display Prisma debug info
+$ prisma debug
+```
+
+#### Getting started with Prisma Migrate
+
+##### Customizing migrations
+
+In some scenarios, you need to edit a migration file before you apply it. For example, to change the direction of a 1-1 relation (moving the foreign key from one side to another) without data loss, you need to move data as part of the migration - this SQL is not part of the default migration, and must be written by hand.
+
+This guide explains how to edit migration files and gives some examples of use cases where you may want to do this.
+
+###### How to edit a migration file
+
+To edit a migration file before applying it, the general procedure is the following:
+
+1. Make a schema change that requires custom SQL (for example, to preserve existing data)
+
+2. Create a draft migration using:
+
+   `npx prisma migrate dev --create-only`
+
+3. Modify the generated SQL file.
+
+4. Apply the modified SQL by running:
+
+   `npx prisma migrate dev`
+
+###### [Example: Rename a field](https://www.prisma.io/docs/orm/prisma-migrate/workflows/customizing-migrations#example-rename-a-field)
+
+###### [Example: Change the direction of a 1-1 relation](https://www.prisma.io/docs/orm/prisma-migrate/workflows/customizing-migrations#example-change-the-direction-of-a-1-1-relation)
+
 ### Storybook
 
 WIP
