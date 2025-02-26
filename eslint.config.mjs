@@ -1,6 +1,8 @@
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
+import pluginJest from "eslint-plugin-jest";
+import tailwind from "eslint-plugin-tailwindcss";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -17,10 +19,18 @@ export default [
     "next/core-web-vitals",
     "next/typescript",
     "plugin:jest/recommended",
-    "plugin:tailwindcss/recommended",
   ),
   eslintConfigPrettier,
+  ...tailwind.configs["flat/recommended"],
   {
+    plugins: { jest: pluginJest },
+
+    languageOptions: {
+      globals: {
+        ...pluginJest.environments.globals.globals,
+      },
+    },
+
     rules: {
       // C
       camelcase: "off",
