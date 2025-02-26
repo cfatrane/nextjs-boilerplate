@@ -6,13 +6,19 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
-import { auth } from "@/auth";
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
 
-import Header from "@/components/shared/Header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-import { routing } from "@/i18n/routing";
+import { Locale, routing } from "@/i18n/routing";
 
 import "./globals.css";
 
@@ -24,48 +30,49 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({
-  children,
-  params: { locale },
-}: Readonly<{ children: React.ReactNode; params: { locale: string } }>) {
+  // children,
+  params,
+}: Readonly<{
+  children: React.ReactNode;
+  params: Promise<{ locale: Locale }>;
+}>) {
+  const { locale } = await params;
+
   // Ensure that the incoming `locale` is valid
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale)) {
     notFound();
   }
 
   // Providing all messages to the client
   // side is the easiest way to get started
-  const session = await auth();
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body className={inter.className} suppressHydrationWarning>
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            disableTransitionOnChange
-            enableSystem
-          >
-            <TooltipProvider>
-              {session ? (
-                <>
-                  {/* User Connected : Main Layout */}
-                  <Header />
+    <ClerkProvider>
+      <html lang={locale} suppressHydrationWarning>
+        <body className={inter.className} suppressHydrationWarning>
+          <NextIntlClientProvider messages={messages}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              disableTransitionOnChange
+              enableSystem
+            >
+              <TooltipProvider>
+                <SignedOut>
+                  <SignInButton />
 
-                  {children}
-                </>
-              ) : (
-                <>
-                  {/* User Not Connected : Auth Layout */}
+                  <SignUpButton />
+                </SignedOut>
 
-                  {children}
-                </>
-              )}
-            </TooltipProvider>
-          </ThemeProvider>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+                <SignedIn>
+                  <UserButton />
+                </SignedIn>
+              </TooltipProvider>
+            </ThemeProvider>
+          </NextIntlClientProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
