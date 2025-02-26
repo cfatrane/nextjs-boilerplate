@@ -28,8 +28,6 @@ model User {
   lastSignInAt            DateTime @default(now())
   role                    Role     @default(USER)
 
-  Session Session[]
-
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -37,17 +35,4 @@ model User {
 enum Role {
   USER
   ADMIN
-}
-
-model Session {
-  clerkSessionId String   @unique
-  clerkUserId    String
-  status         String
-  lastActiveAt   DateTime
-  abandonAt      DateTime
-  expireAt       DateTime
-  user           User     @relation(fields: [clerkUserId], references: [clerkUserId], onDelete: Cascade)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
