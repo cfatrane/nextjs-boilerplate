@@ -12,7 +12,7 @@ export async function generateMetadata(props: {
   params: Params;
 }): Promise<Metadata> {
   const params = await props.params;
-  const {locale} = params;
+  const { locale } = params;
 
   const t = await getTranslations({ locale, namespace: "auth" });
 
@@ -27,7 +27,7 @@ export default async function SignUpPage(
   }>,
 ) {
   const params = await props.params;
-  const {locale} = params;
+  const { locale } = params;
 
   setRequestLocale(locale);
 
