@@ -20,26 +20,8 @@ CREATE TABLE "User" (
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
 
--- CreateTable
-CREATE TABLE "Session" (
-    "clerkSessionId" TEXT NOT NULL,
-    "clerkUserId" TEXT NOT NULL,
-    "status" TEXT NOT NULL,
-    "lastActiveAt" TIMESTAMP(3) NOT NULL,
-    "abandonAt" TIMESTAMP(3) NOT NULL,
-    "expireAt" TIMESTAMP(3) NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL
-);
-
 -- CreateIndex
 CREATE UNIQUE INDEX "User_clerkUserId_key" ON "User"("clerkUserId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Session_clerkSessionId_key" ON "Session"("clerkSessionId");
-
--- AddForeignKey
-ALTER TABLE "Session" ADD CONSTRAINT "Session_clerkUserId_fkey" FOREIGN KEY ("clerkUserId") REFERENCES "User"("clerkUserId") ON DELETE CASCADE ON UPDATE CASCADE;
