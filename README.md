@@ -11,17 +11,20 @@ WIP
 
 ## Features 🛠️
 
-- [**Auth Js**](https://authjs.dev/) : An open-source project built by individual contributors.
+- [**Clerk**](https://clerk.com/docs) : Clerk supports multiple authentication strategies so that you can implement the strategy that makes sense for your users.
 - [**Crowdin**](https://crowdin.com/) : A localization management platform that aims to make the translation process more efficient.
 - [**Husky** 🐶](https://typicode.github.io/husky/) : Automatically lint your commit messages, code, and run tests upon committing or pushing.
 - [**i18n**](https://next-intl-docs.vercel.app/) : The process of designing and developing software so it can be adapted for users of different cultures and languages
 - [**Jest**](https://jestjs.io/) : For unit and integration testing
 - [**ESlint**](https://eslint.org/) : Statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
 - [**Prettier**](https://prettier.io/) : An opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
+- [**Prisma**](https://www.prisma.io/docs/orm) : Prisma ORM is an open-source next-generation ORM
 - [**React Hook Form**](https://react-hook-form.com/) : A library that helps you validate forms in React.
 - [**Shadcn**](https://ui.shadcn.com/) : A collection of beautifully designed, accessible, and customizable React components that you can use to build modern web applications with Next. js.
 - [**Tailwind**](https://tailwindcss.com/) : A utility-first CSS framework that streamlines web development by providing a set of pre-designed utility classes.
 - [**VSCode**](https://marketplace.visualstudio.com/vscode) : Configuration file and recommended extensions
+- [**Vercel**](https://vercel.com/) : Vercel provides the developer tools and cloud infrastructure to build, scale, and secure a faster, more personalized web.
+
 - [**Zod**](https://zod.dev/) : Schema validation with static type inference
 
 ### Soon ⏱️
@@ -53,47 +56,149 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 ### Scripts
 
 ```bash
-dev: "next dev",
-build: "next build",
-start "next start",
-lint "next lint",
-lint:fix "next lint --fix",
-prepare "husky install",
-clean "rm -rf node_modules yarn.lock",
+"dev": "next dev",
+"dev:turbo": "next dev --turbo",
+"build": "next build",
+"start": "next start",
+"lint": "next lint",
+"lint:fix": "next lint --fix",
+"format": "prettier --check --ignore-path .gitignore .",
+"format:fix": "prettier --write --ignore-path .gitignore .",
+"prepare": "husky",
+"test": "jest",
+"test:watch": "jest --watch",
+"prisma:studio": "prisma studio",
+"prisma:generate": "prisma generate",
+"prisma:validate": "prisma validate",
+"prisma:format": "prisma format",
+"prisma:migrate:dev": "prisma migrate dev",
+"prisma:migrate:reset": "prisma migrate reset",
+"prisma:migrate:deploy": "prisma migrate deploy",
+"vercel-build": "prisma generate && prisma migrate deploy && next build"
 ```
 
 ## Project Structure 📁
 
 ```bash
-├── .eslintrc.json        # Configuration file for eslint
-├── .git                  #
-├── .gitignore            #
-├── .husky                #
-├── .prettierignore       # Configuration file for ignore eslint folders and files
-├── .prettierrc           # Prettier configuration
-├── .vscode               # VSCode configurations (extensions, settings ...)
-├── messages              # Folder for all the translation files of i18n
-├── src
-│   ├── app               # Main folder
-│   ├── assets            # Folder for all the assets
-│   ├── components        # Folder for all your components
-│   ├── constants         # Folder for all your constants
-│   ├── hooks             # Folder for all your personals hooks
-│   ├── i18n              # Folder for all the configuration and translations files
-│   ├── lib               # The lib folder contains all the utility functions
-│   ├── redux             #
-│   ├── services          # List of services
-│   ├── styles            # List of styles
-│   ├── tests             # List of tests
-│   ├── types             # List of types
-│   └── utils             # List of utils functions
-├── tailwind.config.ts    #
-└── tsconfig.json         #
+├── .env.example                # Example environment variables file
+├── .gitignore                  # Git ignore file to exclude files and directories from version control
+├── .husky                      # Husky configuration for Git hooks
+├── .prettierrc                 # Prettier configuration file
+├── .vscode                     # VSCode configurations (extensions, settings, etc.)
+├── commitlint.config.ts        # Commitlint configuration file
+├── components.json             # JSON file for component configurations
+├── eslint.config.mjs           # ESLint configuration file
+├── jest.config.ts              # Jest configuration file for testing
+├── jest.setup.ts               # Jest setup file for initializing tests
+├── messages                    # Folder for translation files
+│   ├── en                      # English translations
+│   └── fr                      # French translations
+├── next-env.d.ts               # TypeScript definitions for Next.js
+├── next.config.mjs             # Next.js configuration file
+├── package.json                # Project dependencies and scripts
+├── postcss.config.mjs          # PostCSS configuration file
+├── prisma                      # Prisma ORM configuration and migrations
+│   ├── migrations              # Folder for database migrations
+│   └── schema.prisma           # Prisma schema file
+├── public                      # Public assets directory
+├── src                         # Source code directory
+│   ├── app                     # Main application folder
+│   │   ├── [locale]            # Locale-specific routes
+│   │   │   ├── (auth)          # Authentication-related pages
+│   │   │   ├── dashboard       # Dashboard pages
+│   │   │   ├── layout.tsx      # Layout component for locale-specific routes
+│   │   │   ├── not-found.tsx   # 404 Not Found page for locale-specific routes
+│   │   │   ├── page.tsx        # Main page component for locale-specific routes
+│   │   │   └── settings        # Settings pages
+│   │   ├── favicon.ico         # Favicon for the application
+│   │   ├── global-error.tsx    # Global error handling component
+│   │   ├── globals.css         # Global CSS styles
+│   │   ├── layout.tsx          # Main layout component
+│   │   └── not-found.tsx       # 404 Not Found page
+│   ├── assets                  # Static assets like images, fonts, and icons
+│   ├── constants               # Constant values used across the application
+│   ├── components              # Reusable components
+│   │   ├── shared              # Shared components
+│   │   │   └── ThemeToggle     # Theme toggle component
+│   │   ├── theme-provider.tsx  # Theme provider component
+│   │   └── ui                  # UI components
+│   ├── db                      # Database-related utilities and configurations
+│   ├── i18n                    # Internationalization configuration
+│   ├── lib                     # Utility functions and libraries
+│   ├── middleware.ts           # Middleware configuration
+│   ├── services                # Service layer for API calls and business logic
+│   ├── types                   # TypeScript type definitions
+│   └── utils                   # List of utils functions
+├── tailwind.config.ts          # Tailwind CSS configuration file
+├── tsconfig.json               # TypeScript configuration file
+└── vercel.json                 # Vercel deployment configuration
 ```
 
-### Auth Js
+### Clerk
 
 WIP
+
+### Commitlint
+
+commitlint checks if your commit messages meet the [conventional commit format](https://conventionalcommits.org).
+
+In general the pattern mostly looks like this:
+
+```sh
+type(scope?): subject  #scope is optional; multiple scopes are supported (current delimiter options: "/", "\" and ",")
+```
+
+Real world examples can look like this:
+
+```text
+chore: run tests on travis ci
+```
+
+```text
+fix(server): send cors headers
+```
+
+```text
+feat(blog): add comment section
+```
+
+Common types according to [commitlint-config-conventional (based on the Angular convention)](https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional#type-enum) can be:
+
+- build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+- chore: Other changes that don't modify src or test files
+- ci: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+- docs: Documentation only changes
+- feat: A new feature
+- fix: A bug fix
+- perf: A code change that improves performance
+- refactor: A code change that neither fixes a bug nor adds a feature
+- revert: Reverts a previous commit
+- style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- test: Adding missing tests or correcting existing tests
+
+#### Git Commit Messages
+
+- Use the present tense ("Add feature" not "Added feature")
+- Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
+- Limit the first line to 72 characters or less
+- Reference issues and pull requests liberally after the first line
+- When only changing documentation, include `[ci skip]` in the commit title
+- Consider starting the commit message with an applicable emoji:
+  - 🎨 `:art:` when improving the format/structure of the code
+  - 🐎 `:racehorse:` when improving performance
+  - 🚱 `:non-potable_water:` when plugging memory leaks
+  - 📝 `:memo:` when writing docs
+  - 🐧 `:penguin:` when fixing something on Linux
+  - 🍎 `:apple:` when fixing something on macOS
+  - 🏁 `:checkered_flag:` when fixing something on Windows
+  - 🐛 `:bug:` when fixing a bug
+  - 🔥 `:fire:` when removing code or files
+  - 💚 `:green_heart:` when fixing the CI build
+  - ✅ `:white_check_mark:` when adding tests
+  - 🔒 `:lock:` when dealing with security
+  - ⬆️ `:arrow_up:` when upgrading dependencies
+  - ⬇️ `:arrow_down:` when downgrading dependencies
+  - 👕 `:shirt:` when removing linter warnings
 
 ### Eslint
 
@@ -102,6 +207,59 @@ WIP
 ### i18n / Translation 🗺️
 
 WIP
+
+### Prisma
+
+```sh
+# Set up a new Prisma project
+$ prisma init
+# Generate artifacts (e.g. Prisma Client)
+$ prisma generate
+# Browse your data
+$ prisma studio
+# Create migrations from your Prisma schema, apply them to the database, generate artifacts (e.g. Prisma Client)
+$ prisma migrate dev
+# Pull the schema from an existing database, updating the Prisma schema
+$ prisma db pull
+# Push the Prisma schema state to the database
+$ prisma db push
+# Validate your Prisma schema
+$ prisma validate
+# Format your Prisma schema
+$ prisma format
+# Display Prisma version info
+$ prisma version
+# Display Prisma debug info
+$ prisma debug
+```
+
+#### Getting started with Prisma Migrate
+
+##### Customizing migrations
+
+In some scenarios, you need to edit a migration file before you apply it. For example, to change the direction of a 1-1 relation (moving the foreign key from one side to another) without data loss, you need to move data as part of the migration - this SQL is not part of the default migration, and must be written by hand.
+
+This guide explains how to edit migration files and gives some examples of use cases where you may want to do this.
+
+###### How to edit a migration file
+
+To edit a migration file before applying it, the general procedure is the following:
+
+1. Make a schema change that requires custom SQL (for example, to preserve existing data)
+
+2. Create a draft migration using:
+
+   `npx prisma migrate dev --create-only`
+
+3. Modify the generated SQL file.
+
+4. Apply the modified SQL by running:
+
+   `npx prisma migrate dev`
+
+###### [Example: Rename a field](https://www.prisma.io/docs/orm/prisma-migrate/workflows/customizing-migrations#example-rename-a-field)
+
+###### [Example: Change the direction of a 1-1 relation](https://www.prisma.io/docs/orm/prisma-migrate/workflows/customizing-migrations#example-change-the-direction-of-a-1-1-relation)
 
 ### Storybook
 

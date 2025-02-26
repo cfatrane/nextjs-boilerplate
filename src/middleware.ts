@@ -1,78 +1,27 @@
-import { NextResponse } from "next/server";
+import createMiddleware from "next-intl/middleware";
 
-import createIntlMiddleware from "next-intl/middleware";
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-import { auth } from "@/auth";
-import { locales } from "@/i18n";
+import { routing } from "./i18n/routing";
 
-import { HEADER_ITEMS } from "@/routes/protectedRoutes";
+const handleI18nRouting = createMiddleware(routing);
 
-// * Link : https://next-intl-docs.vercel.app/docs/routing/middleware#example-auth-js
+const isProtectedRoute = createRouteMatcher(["/:locale/dashboard(.*)"]);
 
-// 1. Specify protected and public routes
-const protectedRoutes = HEADER_ITEMS.map((item) => item.href); // Routes that require authentication
-const publicRoutes = ["/signin", "/signup", "/forgot-password"]; // Routes that don't require authentication
-const baseRoute = "/dashboard";
+export default clerkMiddleware(async (auth, req) => {
+  if (isProtectedRoute(req)) await auth.protect();
 
-const pathNameRegex = (pages: string[]): RegExp => {
-  const publicPathnameRegex = RegExp(
-    `^(/(${locales.join("|")}))?(${pages
-      .flatMap((p) => (p === "/" ? ["", "/"] : p))
-      .join("|")})/?$`,
-    "i",
-  );
-
-  return publicPathnameRegex;
-};
-
-const intlMiddleware = createIntlMiddleware({
-  locales,
-  localePrefix: "as-needed",
-  defaultLocale: "en",
+  return handleI18nRouting(req);
 });
 
-// Combined middleware function
-export default auth(async (req) => {
-  const { pathname } = req.nextUrl;
-
-  // Apply i18n middleware
-  const response = intlMiddleware(req);
-
-  // Check if the current route is protected or public
-  const protectedPathnameRegex = pathNameRegex(protectedRoutes);
-  const publicPathnameRegex = pathNameRegex(publicRoutes);
-
-  const isProtectedRoute = protectedPathnameRegex.test(pathname);
-  const isPublicRoute = publicPathnameRegex.test(pathname);
-
-  const isLoggedIn = !!req.auth;
-
-  // console.log(
-  //   `Redirecting: isLoggedIn=${isLoggedIn}, isProtectedRoute=${isProtectedRoute}, isPublicRoute=${isPublicRoute}, path=${pathname}`,
-  // );
-
-  // Redirect to /signin if the user is not authenticated
-  if (isProtectedRoute && !isLoggedIn) {
-    return NextResponse.redirect(new URL("/signin", req.nextUrl));
-  }
-
-  // Redirect to baseRoute if the user is authenticated
-  if (
-    isPublicRoute &&
-    isLoggedIn &&
-    !req.nextUrl.pathname.startsWith(baseRoute)
-  ) {
-    return NextResponse.redirect(new URL(baseRoute, req.nextUrl));
-  }
-
-  if (pathname === "/" && isLoggedIn) {
-    return NextResponse.redirect(new URL(baseRoute, req.nextUrl));
-  }
-
-  return response;
-});
-
-// Combined config
 export const config = {
-  matcher: ["/", "/((?!api|_next/static|_next/image|favicon.ico|.*\\.png$).*)"],
+  matcher: [
+    // Match only internationalized pathnames
+    "/",
+    "/(en|fr)/:path*",
+    // Skip Next.js internals and all static files, unless found in search params
+    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    // Always run for API routes
+    "/(api|trpc)(.*)",
+  ],
 };

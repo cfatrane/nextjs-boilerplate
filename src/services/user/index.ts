@@ -1,8 +1,53 @@
 "use server";
 
+import { User } from "@prisma/client";
+
 import prisma from "@/lib/prisma";
 
-var bcrypt = require("bcryptjs");
+// Create
+type CreateUserProps = Pick<
+  User,
+  | "clerkUserId"
+  | "createdAt"
+  | "email"
+  | "firstName"
+  | "hasVerifiedEmailAddress"
+  | "imageUrl"
+  | "lastName"
+  | "lastSignInAt"
+  | "updatedAt"
+  | "username"
+>;
+
+export const createUser = async ({
+  clerkUserId,
+  createdAt,
+  email,
+  firstName,
+  hasVerifiedEmailAddress,
+  imageUrl,
+  lastName,
+  lastSignInAt,
+  username,
+  updatedAt,
+}: CreateUserProps) => {
+  const user = await prisma.user.create({
+    data: {
+      clerkUserId,
+      createdAt,
+      email,
+      firstName,
+      hasVerifiedEmailAddress,
+      imageUrl,
+      lastName,
+      lastSignInAt,
+      updatedAt,
+      username,
+    },
+  });
+
+  return user;
+};
 
 export const getAllUsers = async () => {
   const users = await prisma.user.findMany();
@@ -20,41 +65,18 @@ export const getUserByEmail = async (email: string) => {
   return user;
 };
 
-export const createUser = async (email: string, password: string) => {
-  const existingUser = await prisma.user.findUnique({
-    where: {
-      email,
-    },
-  });
-
-  if (existingUser) {
-    throw new Error("User already exists");
-  }
-
-  const salt = bcrypt.genSaltSync(10);
-  const hashedPassword = bcrypt.hashSync(password, salt);
-
-  const user = await prisma.user.create({
-    data: {
-      email,
-      password: hashedPassword,
-    },
-  });
-
-  return user;
-};
-
+// Update
 export const updateUser = async ({
-  where,
+  clerkUserId,
   data,
 }: {
-  where: any;
+  clerkUserId: string;
   data: object;
 }) => {
-  const updateUser = await prisma.user.update({
-    where: where,
+  const updatedUser = await prisma.user.update({
+    where: { clerkUserId },
     data,
   });
 
-  return updateUser;
+  return updatedUser;
 };

@@ -1,19 +1,29 @@
 import type { Metadata } from "next";
 
 import { Inter } from "next/font/google";
+import { notFound } from "next/navigation";
 
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
-import { auth } from "@/auth";
+import { enUS, frFR } from "@clerk/localizations";
+import { ClerkProvider, SignedIn, SignedOut } from "@clerk/nextjs";
 
-import Header from "@/components/shared/Header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-import "./globals.css";
+import { Locale, routing } from "@/i18n/routing";
+
+import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const CLERK_CONFIG = {
+  layout: {
+    logoLinkUrl: "https://yoursite.com/",
+  },
+  supportEmail: "support@yourcompany.com",
+};
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,45 +32,66 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: Locale }>;
 }>) {
+  const { locale } = await params;
+
+  // Ensure that the incoming `locale` is valid
+  if (!routing.locales.includes(locale)) {
+    notFound();
+  }
+
   // Providing all messages to the client
   // side is the easiest way to get started
-  const session = await auth();
   const messages = await getMessages();
 
+  let clerkLocale;
+
+  switch (locale) {
+    case "fr":
+      clerkLocale = frFR;
+      break;
+    case "en":
+      clerkLocale = enUS;
+      break;
+    default:
+      break;
+  }
+
   return (
-    <html lang={locale}>
-      <body className={inter.className} suppressHydrationWarning>
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            disableTransitionOnChange
-            enableSystem
-          >
-            <TooltipProvider>
-              {session ? (
-                <>
-                  {/* User Connected : Main Layout */}
-                  <Header />
+    <ClerkProvider
+      appearance={{
+        layout: {
+          logoLinkUrl: CLERK_CONFIG.layout.logoLinkUrl,
+        },
+      }}
+      localization={clerkLocale}
+      supportEmail={CLERK_CONFIG.supportEmail}
+    >
+      <html className={inter.className} lang={locale} suppressHydrationWarning>
+        <body
+          className="flex h-screen flex-col font-light"
+          suppressHydrationWarning
+        >
+          <NextIntlClientProvider messages={messages}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              disableTransitionOnChange
+              enableSystem
+            >
+              <TooltipProvider>
+                <SignedOut>{children}</SignedOut>
 
-                  {children}
-                </>
-              ) : (
-                <>
-                  {/* User Not Connected : Auth Layout */}
-
-                  {children}
-                </>
-              )}
-            </TooltipProvider>
-          </ThemeProvider>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+                <SignedIn>{children} </SignedIn>
+              </TooltipProvider>
+            </ThemeProvider>
+          </NextIntlClientProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
