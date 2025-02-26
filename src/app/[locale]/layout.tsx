@@ -6,14 +6,7 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
-import {
-  ClerkProvider,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignUpButton,
-  UserButton,
-} from "@clerk/nextjs";
+import { ClerkProvider, SignedIn, SignedOut } from "@clerk/nextjs";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -30,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({
-  // children,
+  children,
   params,
 }: Readonly<{
   children: React.ReactNode;
@@ -49,8 +42,11 @@ export default async function RootLayout({
 
   return (
     <ClerkProvider>
-      <html lang={locale} suppressHydrationWarning>
-        <body className={inter.className} suppressHydrationWarning>
+      <html className={inter.className} lang={locale} suppressHydrationWarning>
+        <body
+          className="flex h-screen flex-col font-light"
+          suppressHydrationWarning
+        >
           <NextIntlClientProvider messages={messages}>
             <ThemeProvider
               attribute="class"
@@ -59,15 +55,9 @@ export default async function RootLayout({
               enableSystem
             >
               <TooltipProvider>
-                <SignedOut>
-                  <SignInButton />
+                <SignedOut>{children}</SignedOut>
 
-                  <SignUpButton />
-                </SignedOut>
-
-                <SignedIn>
-                  <UserButton />
-                </SignedIn>
+                <SignedIn>{children} </SignedIn>
               </TooltipProvider>
             </ThemeProvider>
           </NextIntlClientProvider>

@@ -33,5 +33,9 @@ export default async function AuthLayout({
 
   setRequestLocale(locale);
 
-  return <div className="py-12">{children}</div>;
+  return (
+    <div className="flex grow items-center justify-center py-12">
+      {children}
+    </div>
+  );
 }
