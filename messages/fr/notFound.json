@@ -2,6 +2,6 @@
   "notFound": {
     "title": "Page non trouvée",
     "subtitle": "Désolé, nous n’avons pas trouvé la page que vous recherchez.",
-    "return": "Retour à la page principale"
+    "button": "Retour à la page principale"
   }
 }
