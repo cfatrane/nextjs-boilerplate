@@ -11,6 +11,9 @@ importers:
       '@auth/prisma-adapter':
         specifier: ^2.2.0
         version: 2.7.4(@prisma/client@6.4.1(prisma@6.4.1(typescript@5.7.3))(typescript@5.7.3))
+      '@clerk/localizations':
+        specifier: ^3.10.7
+        version: 3.10.7
       '@clerk/nextjs':
         specifier: ^6.12.0
         version: 6.12.0(next@15.1.7(@babel/core@7.26.9)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -429,6 +432,10 @@ packages:
     peerDependencies:
       react: ^18.0.0 || ^19.0.0 || ^19.0.0-0
       react-dom: ^18.0.0 || ^19.0.0 || ^19.0.0-0
+
+  '@clerk/localizations@3.10.7':
+    resolution: {integrity: sha512-+Np7Vjx9KSIamZLm+8UTmm0OTF5HkcJfDFFYnNhfJz1/+JbwhcYOHspYTdsWjsml/VxM8OhfgyaBAgUUiAUSVA==}
+    engines: {node: '>=18.17.0'}
 
   '@clerk/nextjs@6.12.0':
     resolution: {integrity: sha512-fA+M09d9KdZd0L0yDpQZJ0LscKwrZkJVa+4Zkk9LVdeanhbrLokQljS9ZbZvAS+jGKTzjX0SPhTeJdoq3NTFHg==}
@@ -4726,6 +4733,10 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       tslib: 2.4.1
+
+  '@clerk/localizations@3.10.7':
+    dependencies:
+      '@clerk/types': 4.46.1
 
   '@clerk/nextjs@6.12.0(next@15.1.7(@babel/core@7.26.9)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
