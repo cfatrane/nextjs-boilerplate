@@ -1,26 +1,27 @@
 import createMiddleware from "next-intl/middleware";
 
-import { defaultLocale, locales } from "@/config";
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-const intlMiddleware = createMiddleware({
-  locales,
-  localePrefix: "always",
-  defaultLocale,
-});
+import { routing } from "./i18n/routing";
+
+const handleI18nRouting = createMiddleware(routing);
 
 const isProtectedRoute = createRouteMatcher(["/:locale/dashboard(.*)"]);
 
-export default clerkMiddleware((auth, req) => {
-  if (isProtectedRoute(req)) auth().protect();
+export default clerkMiddleware(async (auth, req) => {
+  if (isProtectedRoute(req)) await auth.protect();
 
-  return intlMiddleware(req);
+  return handleI18nRouting(req);
 });
 
 export const config = {
   matcher: [
-    "/((?!.*\\..*|_next).*)", // Don't run middleware on static files
-    "/", // Run middleware on index page
+    // Match only internationalized pathnames
+    "/",
+    "/(en|fr)/:path*",
+    // Skip Next.js internals and all static files, unless found in search params
+    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    // Always run for API routes
     "/(api|trpc)(.*)",
-  ], // Run middleware on API routes
+  ],
 };
