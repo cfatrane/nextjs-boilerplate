@@ -12,11 +12,13 @@ WIP
 ## Features 🛠️
 
 - [**Clerk**](https://clerk.com/docs) : Clerk supports multiple authentication strategies so that you can implement the strategy that makes sense for your users.
+- [**Commitlint**](https://commitlint.js.org/) : Commit conventions allow your team to add more semantic meaning to your git history. This e.g. includes type, scope or breaking changes.
 - [**Crowdin**](https://crowdin.com/) : A localization management platform that aims to make the translation process more efficient.
 - [**Husky** 🐶](https://typicode.github.io/husky/) : Automatically lint your commit messages, code, and run tests upon committing or pushing.
 - [**i18n**](https://next-intl-docs.vercel.app/) : The process of designing and developing software so it can be adapted for users of different cultures and languages
 - [**Jest**](https://jestjs.io/) : For unit and integration testing
 - [**ESlint**](https://eslint.org/) : Statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
+- [**Next Themes**](https://github.com/pacocoursey/next-themes) : An abstraction for themes in your React app.
 - [**Prettier**](https://prettier.io/) : An opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
 - [**Prisma**](https://www.prisma.io/docs/orm) : Prisma ORM is an open-source next-generation ORM
 - [**React Hook Form**](https://react-hook-form.com/) : A library that helps you validate forms in React.
@@ -24,7 +26,6 @@ WIP
 - [**Tailwind**](https://tailwindcss.com/) : A utility-first CSS framework that streamlines web development by providing a set of pre-designed utility classes.
 - [**VSCode**](https://marketplace.visualstudio.com/vscode) : Configuration file and recommended extensions
 - [**Vercel**](https://vercel.com/) : Vercel provides the developer tools and cloud infrastructure to build, scale, and secure a faster, more personalized web.
-
 - [**Zod**](https://zod.dev/) : Schema validation with static type inference
 
 ### Soon ⏱️
