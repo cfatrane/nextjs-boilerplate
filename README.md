@@ -12,11 +12,13 @@ WIP
 ## Features 🛠️
 
 - [**Clerk**](https://clerk.com/docs) : Clerk supports multiple authentication strategies so that you can implement the strategy that makes sense for your users.
+- [**Commitlint**](https://commitlint.js.org/) : Commit conventions allow your team to add more semantic meaning to your git history. This e.g. includes type, scope or breaking changes.
 - [**Crowdin**](https://crowdin.com/) : A localization management platform that aims to make the translation process more efficient.
 - [**Husky** 🐶](https://typicode.github.io/husky/) : Automatically lint your commit messages, code, and run tests upon committing or pushing.
 - [**i18n**](https://next-intl-docs.vercel.app/) : The process of designing and developing software so it can be adapted for users of different cultures and languages
 - [**Jest**](https://jestjs.io/) : For unit and integration testing
 - [**ESlint**](https://eslint.org/) : Statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
+- [**Next Themes**](https://github.com/pacocoursey/next-themes) : An abstraction for themes in your React app.
 - [**Prettier**](https://prettier.io/) : An opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
 - [**Prisma**](https://www.prisma.io/docs/orm) : Prisma ORM is an open-source next-generation ORM
 - [**React Hook Form**](https://react-hook-form.com/) : A library that helps you validate forms in React.
@@ -24,7 +26,6 @@ WIP
 - [**Tailwind**](https://tailwindcss.com/) : A utility-first CSS framework that streamlines web development by providing a set of pre-designed utility classes.
 - [**VSCode**](https://marketplace.visualstudio.com/vscode) : Configuration file and recommended extensions
 - [**Vercel**](https://vercel.com/) : Vercel provides the developer tools and cloud infrastructure to build, scale, and secure a faster, more personalized web.
-
 - [**Zod**](https://zod.dev/) : Schema validation with static type inference
 
 ### Soon ⏱️
@@ -206,7 +207,142 @@ WIP
 
 ### i18n / Translation 🗺️
 
-WIP
+This project uses the `next-intl` library for internationalization (i18n). Below are the steps to set up and use i18n in this project.
+
+#### Setup
+
+1. **Configuration**:
+   The i18n configuration is defined in [`src/i18n/routing.ts`](src/i18n/routing.ts). This file sets up the supported locales and the default locale.
+
+   ```ts
+   import { createNavigation } from "next-intl/navigation";
+   import { defineRouting } from "next-intl/routing";
+
+   export const routing = defineRouting({
+     locales: ["en", "fr"],
+     defaultLocale: "en",
+   });
+
+   export type Locale = (typeof routing.locales)[number];
+
+   export const { Link, redirect, usePathname, useRouter, getPathname } =
+     createNavigation(routing);
+   ```
+
+2. **Middleware**:
+   The middleware for handling i18n routing is set up in [`src/middleware.ts`](src/middleware.ts). This middleware ensures that the correct locale is used based on the request.
+
+   ```ts
+   import createMiddleware from "next-intl/middleware";
+
+   import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+
+   import { routing } from "./i18n/routing";
+
+   const handleI18nRouting = createMiddleware(routing);
+   const isProtectedRoute = createRouteMatcher(["/:locale/dashboard(.*)"]);
+
+   export default clerkMiddleware(async (auth, req) => {
+     if (isProtectedRoute(req)) await auth.protect();
+     return handleI18nRouting(req);
+   });
+
+   export const config = {
+     matcher: [
+       "/",
+       "/(en|fr)/:path*",
+       "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+       "/(api|trpc)(.*)",
+     ],
+   };
+   ```
+
+3. **Messages**:
+   Translation messages are stored in the `messages` directory. Each locale has its own folder containing JSON files for different namespaces. For example:
+
+   - `messages/en/home.json`
+   - `messages/fr/home.json`
+
+4. **Request Configuration**:
+   The request configuration for i18n is defined in [`src/i18n/request.ts`](src/i18n/request.ts). This file ensures that the correct messages are loaded based on the request locale.
+
+   ```ts
+   import { getRequestConfig } from "next-intl/server";
+
+   import { Locale, routing } from "./routing";
+
+   export default getRequestConfig(async ({ requestLocale }) => {
+     let locale = await requestLocale;
+     if (!locale || !routing.locales.includes(locale as Locale)) {
+       locale = routing.defaultLocale;
+     }
+
+     return {
+       locale,
+       messages: {
+         ...(await import(`../../messages/${locale}/home.json`)).default,
+         ...(await import(`../../messages/${locale}/auth.json`)).default,
+         ...(await import(`../../messages/${locale}/notFound.json`)).default,
+       },
+     };
+   });
+   ```
+
+#### Usage
+
+1. **Adding Translations**:
+   To add translations, create or update the JSON files in the `messages` directory. For example, to add a new translation for the home page in French, update `messages/fr/home.json`:
+
+   ```json
+   {
+     "Home": {
+       "Docs": {
+         "title": "Documents",
+         "text": "Trouvez des informations détaillées sur les fonctionnalités et l'API de Next.js."
+       },
+       "Learn": {
+         "title": "Apprendre",
+         "text": "Apprenez à connaître Next.js dans un cours interactif avec des quiz !"
+       }
+     }
+   }
+   ```
+
+2. **Using Translations in Components**:
+   Use the `useTranslations` hook from `next-intl` to access translations in your components. For example, in a component:
+
+   ```tsx
+   import { useTranslations } from "next-intl";
+
+   export default function Home() {
+     const t = useTranslations("Home");
+
+     return (
+       <main>
+         <h1>{t("Docs.title")}</h1>
+         <p>{t("Docs.text")}</p>
+       </main>
+     );
+   }
+   ```
+
+3. **Linking to Different Locales**:
+   Use the `Link` component from `next-intl/navigation` to create links that respect the current locale. For example:
+
+   ```tsx
+   import { Link } from "@/i18n/routing";
+
+   export default function Navigation() {
+     return (
+       <nav>
+         <Link href="/">{t("Home")}</Link>
+         <Link href="/about">{t("About")}</Link>
+       </nav>
+     );
+   }
+   ```
+
+By following these steps, you can set up and use i18n in your Next.js project to support multiple languages.
 
 ### Prisma
 
