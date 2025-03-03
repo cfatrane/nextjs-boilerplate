@@ -483,6 +483,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 ### Auth
 
 - [Clerk](https://clerk.com/docs)
+- [Kinde](https://kinde.com/)
 
 ### Components
 
@@ -492,9 +493,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 - [Ant Design](https://ant.design/)
 - [Aceternity UI](https://ui.aceternity.com/)
 - [Preline UI](https://preline.co/index.html)
+- [Origin UI](https://originui.com/)
+- [Tailus](https://ui.tailus.io/)
 
 ### Database
 
+- [Neon Tech](https://console.neon.tech/)
+- [Supabase](https://supabase.com/)
 - [Turso](https://turso.tech/)
 - [Planetscale](https://planetscale.com/)
 

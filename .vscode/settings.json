@@ -15,6 +15,7 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
   "editor.tabSize": 2,
+  "editor.wordWrap": "wordWrapColumn",
   // ErroLens
   "errorLens.enabled": true,
   // Eslint
@@ -28,5 +29,9 @@
   "files.trimTrailingWhitespace": true,
 
   // i18n
-  "i18n-ally.localesPaths": ["messages"]
+  "i18n-ally.localesPaths": ["messages"],
+
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  }
 }
