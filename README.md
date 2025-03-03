@@ -13,7 +13,6 @@ WIP
 
 - [**Clerk**](https://clerk.com/docs) : Clerk supports multiple authentication strategies so that you can implement the strategy that makes sense for your users.
 - [**Commitlint**](https://commitlint.js.org/) : Commit conventions allow your team to add more semantic meaning to your git history. This e.g. includes type, scope or breaking changes.
-- [**Crowdin**](https://crowdin.com/) : A localization management platform that aims to make the translation process more efficient.
 - [**Husky** 🐶](https://typicode.github.io/husky/) : Automatically lint your commit messages, code, and run tests upon committing or pushing.
 - [**i18n**](https://next-intl-docs.vercel.app/) : The process of designing and developing software so it can be adapted for users of different cultures and languages
 - [**Jest**](https://jestjs.io/) : For unit and integration testing
@@ -30,9 +29,13 @@ WIP
 
 ### Soon ⏱️
 
+- [**Crowdin**](https://crowdin.com/) : A localization management platform that aims to make the translation process more efficient.
 - **Github Actions** : A continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline.
 - [**Storybook**](https://storybook.js.org/) : A development environment tool that is used as a playground for UI components. It allows us, the developers, to create and test components in isolation.
 - [**Sentry**](https://sentry.io/) : For real-time error tracking and monitoring
+- [**Posthog**](https://posthog.com/) : PostHog is the only all-in-one platform for product analytics, feature flags, session replays, experiments, and surveys that's built for developer
+- [**Google Tag Manager**](https://nextjs.org/docs/app/building-your-application/optimizing/third-party-libraries#google-tag-manager)
+- [**Google Analytics**](https://nextjs.org/docs/app/building-your-application/optimizing/third-party-libraries#google-analytics)
 
 ## Getting Started 🤔
 
@@ -139,6 +142,8 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 WIP
 
+---
+
 ### Commitlint
 
 commitlint checks if your commit messages meet the [conventional commit format](https://conventionalcommits.org).
@@ -201,9 +206,13 @@ Common types according to [commitlint-config-conventional (based on the Angular 
   - ⬇️ `:arrow_down:` when downgrading dependencies
   - 👕 `:shirt:` when removing linter warnings
 
+---
+
 ### Eslint
 
 WIP
+
+---
 
 ### i18n / Translation 🗺️
 
@@ -344,6 +353,8 @@ This project uses the `next-intl` library for internationalization (i18n). Below
 
 By following these steps, you can set up and use i18n in your Next.js project to support multiple languages.
 
+---
+
 ### Prisma
 
 ```sh
@@ -397,9 +408,13 @@ To edit a migration file before applying it, the general procedure is the follow
 
 ###### [Example: Change the direction of a 1-1 relation](https://www.prisma.io/docs/orm/prisma-migrate/workflows/customizing-migrations#example-change-the-direction-of-a-1-1-relation)
 
+---
+
 ### Storybook
 
 WIP
+
+---
 
 ### Test
 
