@@ -65,7 +65,7 @@
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^16.0.0",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
     "@types/ws": "^8.5.10",
