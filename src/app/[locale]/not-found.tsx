@@ -22,7 +22,7 @@ export default function NotFound() {
 
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link href="/">
-            <Button>{t("button")}</Button>
+            <Button>{t("return")}</Button>
           </Link>
         </div>
       </div>

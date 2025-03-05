@@ -80,3 +80,12 @@ export const updateUser = async ({
 
   return updatedUser;
 };
+
+// Delete
+export const deleteUser = async (clerkUserId: string) => {
+  const deletedUser = await prisma.user.delete({
+    where: { clerkUserId },
+  });
+
+  return deletedUser;
+};
