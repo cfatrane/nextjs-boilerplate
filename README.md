@@ -104,6 +104,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 ├── prisma                      # Prisma ORM configuration and migrations
 │   ├── migrations              # Folder for database migrations
 │   └── schema.prisma           # Prisma schema file
+├── prisma.config.ts            # Prisma CLI datasource and migration configuration
 ├── public                      # Public assets directory
 ├── src                         # Source code directory
 │   ├── app                     # Main application folder
@@ -364,7 +365,7 @@ $ prisma init
 $ prisma generate
 # Browse your data
 $ prisma studio
-# Create migrations from your Prisma schema, apply them to the database, generate artifacts (e.g. Prisma Client)
+# Create migrations from your Prisma schema and apply them to the database (Prisma v7 does not generate the client automatically)
 $ prisma migrate dev
 # Pull the schema from an existing database, updating the Prisma schema
 $ prisma db pull
