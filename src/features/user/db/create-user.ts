@@ -1,6 +1,6 @@
 "use server";
 
-import { User } from "@prisma/client";
+import type { User } from "@/generated/prisma/client";
 import { z } from "zod";
 
 import prisma from "@/lib/prisma";
