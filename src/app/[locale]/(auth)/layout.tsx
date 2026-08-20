@@ -4,9 +4,7 @@ import type { Metadata } from "next";
 
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import { Locale } from "@/i18n/routing";
-
-type Params = Promise<{ locale: Locale }>;
+type Params = Promise<{ locale: string }>;
 
 export async function generateMetadata({
   params,

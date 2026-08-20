@@ -4,9 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { SignUp } from "@clerk/nextjs";
 
-import { Locale } from "@/i18n/routing";
-
-type Params = Promise<{ locale: Locale }>;
+type Params = Promise<{ locale: string }>;
 
 export async function generateMetadata(props: {
   params: Params;

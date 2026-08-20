@@ -1,4 +1,4 @@
-import { Pathnames } from "next-intl/navigation";
+import { Pathnames } from "next-intl/routing";
 
 export const defaultLocale = "fr";
 export const locales = ["en", "fr"] as const;

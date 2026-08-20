@@ -129,7 +129,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 │   ├── db                      # Database-related utilities and configurations
 │   ├── i18n                    # Internationalization configuration
 │   ├── lib                     # Utility functions and libraries
-│   ├── middleware.ts           # Middleware configuration
+│   ├── proxy.ts                # Request proxy configuration
 │   ├── services                # Service layer for API calls and business logic
 │   ├── types                   # TypeScript type definitions
 │   └── utils                   # List of utils functions
@@ -238,8 +238,8 @@ This project uses the `next-intl` library for internationalization (i18n). Below
      createNavigation(routing);
    ```
 
-2. **Middleware**:
-   The middleware for handling i18n routing is set up in [`src/middleware.ts`](src/middleware.ts). This middleware ensures that the correct locale is used based on the request.
+2. **Proxy**:
+   The proxy for handling i18n routing is set up in [`src/proxy.ts`](src/proxy.ts). This proxy ensures that the correct locale is used based on the request.
 
    ```ts
    import createMiddleware from "next-intl/middleware";
