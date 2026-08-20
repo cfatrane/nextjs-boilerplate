@@ -1,14 +1,22 @@
+import { notFound } from "next/navigation";
+import * as rootParams from "next/root-params";
+
+import { hasLocale } from "next-intl";
 import { getRequestConfig } from "next-intl/server";
 
-import { Locale, routing } from "./routing";
+import { routing } from "./routing";
 
-export default getRequestConfig(async ({ requestLocale }) => {
-  // This typically corresponds to the `[locale]` segment
-  let locale = await requestLocale;
+export default getRequestConfig(async ({ locale }) => {
+  if (!locale) {
+    const paramValue = await rootParams.locale();
 
-  // Ensure that a valid locale is used
-  if (!locale || !routing.locales.includes(locale as Locale)) {
-    locale = routing.defaultLocale;
+    if (hasLocale(routing.locales, paramValue)) {
+      // Keep the callback aligned with the official next-intl example.
+      // eslint-disable-next-line no-param-reassign
+      locale = paramValue;
+    } else {
+      notFound();
+    }
   }
 
   return {

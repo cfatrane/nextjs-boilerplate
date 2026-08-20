@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 
-import { Link } from "@/i18n/routing";
+import { Link } from "@/i18n/navigation";
 
 export default function NotFound() {
   const t = useTranslations("notFound");

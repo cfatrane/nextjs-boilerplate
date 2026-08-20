@@ -1,33 +1,17 @@
 import { Metadata } from "next";
 
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import { SignIn } from "@clerk/nextjs";
 
-type Params = Promise<{ locale: string }>;
-
-export async function generateMetadata(props: {
-  params: Params;
-}): Promise<Metadata> {
-  const params = await props.params;
-  const { locale } = params;
-
-  const t = await getTranslations({ locale, namespace: "auth" });
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("auth");
 
   return {
     title: t("SignIn.Metadata"),
   };
 }
 
-export default async function SignInPage(
-  props: Readonly<{
-    params: Params;
-  }>,
-) {
-  const params = await props.params;
-  const { locale } = params;
-
-  setRequestLocale(locale);
-
+export default async function SignInPage() {
   return <SignIn />;
 }

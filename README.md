@@ -1,4 +1,4 @@
-# Boilerplate Next Js 15 WIP
+# Boilerplate Next.js 16 WIP
 
 ![Github Banner 1280x640](https://github.com/cfatrane/nextjs-boilerplate/assets/17748314/392e9faa-349e-4a31-b550-b72c89709829)
 
@@ -14,7 +14,7 @@ WIP
 - [**Clerk**](https://clerk.com/docs) : Clerk supports multiple authentication strategies so that you can implement the strategy that makes sense for your users.
 - [**Commitlint**](https://commitlint.js.org/) : Commit conventions allow your team to add more semantic meaning to your git history. This e.g. includes type, scope or breaking changes.
 - [**Husky** 🐶](https://typicode.github.io/husky/) : Automatically lint your commit messages, code, and run tests upon committing or pushing.
-- [**i18n**](https://next-intl-docs.vercel.app/) : The process of designing and developing software so it can be adapted for users of different cultures and languages
+- [**i18n**](https://next-intl.dev/) : The process of designing and developing software so it can be adapted for users of different cultures and languages
 - [**Jest**](https://jestjs.io/) : For unit and integration testing
 - [**ESlint**](https://eslint.org/) : Statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
 - [**Next Themes**](https://github.com/pacocoursey/next-themes) : An abstraction for themes in your React app.
@@ -225,7 +225,6 @@ This project uses the `next-intl` library for internationalization (i18n). Below
    The i18n configuration is defined in [`src/i18n/routing.ts`](src/i18n/routing.ts). This file sets up the supported locales and the default locale.
 
    ```ts
-   import { createNavigation } from "next-intl/navigation";
    import { defineRouting } from "next-intl/routing";
 
    export const routing = defineRouting({
@@ -234,6 +233,14 @@ This project uses the `next-intl` library for internationalization (i18n). Below
    });
 
    export type Locale = (typeof routing.locales)[number];
+   ```
+
+   Locale-aware navigation helpers are created in [`src/i18n/navigation.ts`](src/i18n/navigation.ts), following the `next-intl` routing setup:
+
+   ```ts
+   import { createNavigation } from "next-intl/navigation";
+
+   import { routing } from "./routing";
 
    export const { Link, redirect, usePathname, useRouter, getPathname } =
      createNavigation(routing);
@@ -274,17 +281,26 @@ This project uses the `next-intl` library for internationalization (i18n). Below
    - `messages/fr/home.json`
 
 4. **Request Configuration**:
-   The request configuration for i18n is defined in [`src/i18n/request.ts`](src/i18n/request.ts). This file ensures that the correct messages are loaded based on the request locale.
+   The request configuration for i18n is defined in [`src/i18n/request.ts`](src/i18n/request.ts). It uses the stable Next.js 16.3 `next/root-params` API to read and validate the locale from the root route.
 
    ```ts
+   import { notFound } from "next/navigation";
+   import * as rootParams from "next/root-params";
+
+   import { hasLocale } from "next-intl";
    import { getRequestConfig } from "next-intl/server";
 
-   import { Locale, routing } from "./routing";
+   import { routing } from "./routing";
 
-   export default getRequestConfig(async ({ requestLocale }) => {
-     let locale = await requestLocale;
-     if (!locale || !routing.locales.includes(locale as Locale)) {
-       locale = routing.defaultLocale;
+   export default getRequestConfig(async ({ locale }) => {
+     if (!locale) {
+       const paramValue = await rootParams.locale();
+
+       if (hasLocale(routing.locales, paramValue)) {
+         locale = paramValue;
+       } else {
+         notFound();
+       }
      }
 
      return {
@@ -292,11 +308,19 @@ This project uses the `next-intl` library for internationalization (i18n). Below
        messages: {
          ...(await import(`../../messages/${locale}/home.json`)).default,
          ...(await import(`../../messages/${locale}/auth.json`)).default,
-         ...(await import(`../../messages/${locale}/notFound.json`)).default,
+         ...(await import(`../../messages/${locale}/not-found.json`)).default,
        },
      };
    });
    ```
+
+5. **Localized Root Layout and 404**:
+   [`src/app/[locale]/layout.tsx`](src/app/%5Blocale%5D/layout.tsx) is the root layout so that `locale` is available through `next/root-params`. It generates the `en` and `fr` route parameters at build time. Requests outside the localized route tree are handled by [`src/app/global-not-found.tsx`](src/app/global-not-found.tsx), while unknown localized routes are forwarded to the translated 404 by `src/app/[locale]/[...rest]/page.tsx`.
+
+6. **Type Safety**:
+   [`global.ts`](global.ts) augments `next-intl.AppConfig` with the supported `Locale` union and the combined English message shape. Locale values, namespaces and message keys are therefore checked by TypeScript.
+
+The implementation follows the official [`next-intl` App Router guide](https://next-intl.dev/docs/getting-started/app-router), [routing setup](https://next-intl.dev/docs/routing/setup), [error-file conventions](https://next-intl.dev/docs/environments/error-files) and [TypeScript augmentation](https://next-intl.dev/docs/workflows/typescript).
 
 #### Usage
 
@@ -340,7 +364,7 @@ This project uses the `next-intl` library for internationalization (i18n). Below
    Use the `Link` component from `next-intl/navigation` to create links that respect the current locale. For example:
 
    ```tsx
-   import { Link } from "@/i18n/routing";
+   import { Link } from "@/i18n/navigation";
 
    export default function Navigation() {
      return (
