@@ -7,7 +7,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
 import { enUS, frFR } from "@clerk/localizations";
-import { ClerkProvider, SignedIn, SignedOut } from "@clerk/nextjs";
+import { ClerkProvider, Show } from "@clerk/nextjs";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -62,19 +62,19 @@ export default async function RootLayout({
   }
 
   return (
-    <ClerkProvider
-      appearance={{
-        layout: {
-          logoLinkUrl: CLERK_CONFIG.layout.logoLinkUrl,
-        },
-      }}
-      localization={clerkLocale}
-      supportEmail={CLERK_CONFIG.supportEmail}
-    >
-      <html className={inter.className} lang={locale} suppressHydrationWarning>
-        <body
-          className="flex h-screen flex-col font-light"
-          suppressHydrationWarning
+    <html className={inter.className} lang={locale} suppressHydrationWarning>
+      <body
+        className="flex h-screen flex-col font-light"
+        suppressHydrationWarning
+      >
+        <ClerkProvider
+          appearance={{
+            options: {
+              logoLinkUrl: CLERK_CONFIG.layout.logoLinkUrl,
+            },
+          }}
+          localization={clerkLocale}
+          supportEmail={CLERK_CONFIG.supportEmail}
         >
           <NextIntlClientProvider messages={messages}>
             <ThemeProvider
@@ -84,14 +84,14 @@ export default async function RootLayout({
               enableSystem
             >
               <TooltipProvider>
-                <SignedOut>{children}</SignedOut>
+                <Show when="signed-out">{children}</Show>
 
-                <SignedIn>{children} </SignedIn>
+                <Show when="signed-in">{children} </Show>
               </TooltipProvider>
             </ThemeProvider>
           </NextIntlClientProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }
