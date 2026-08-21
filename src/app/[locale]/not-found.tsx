@@ -12,11 +12,11 @@ export default function NotFound() {
       <div className="text-center">
         <p className="text-base font-semibold">404</p>
 
-        <h1 className="mt-4 text-3xl font-bold tracking-tight text-primary sm:text-5xl">
+        <h1 className="text-primary mt-4 text-3xl font-bold tracking-tight sm:text-5xl">
           {t("title")}
         </h1>
 
-        <p className="mt-6 text-base leading-7 text-muted-foreground">
+        <p className="text-muted-foreground mt-6 text-base leading-7">
           {t("subtitle")}
         </p>
 
