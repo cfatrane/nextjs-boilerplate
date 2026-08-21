@@ -6,7 +6,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 
 import { enUS, frFR } from "@clerk/localizations";
-import { ClerkProvider, Show } from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,6 +14,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { routing } from "@/i18n/routing";
 
 import "../globals.css";
+import Providers from "../providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -79,11 +80,9 @@ export default async function RootLayout({
               disableTransitionOnChange
               enableSystem
             >
-              <TooltipProvider>
-                <Show when="signed-out">{children}</Show>
-
-                <Show when="signed-in">{children} </Show>
-              </TooltipProvider>
+              <Providers>
+                <TooltipProvider>{children}</TooltipProvider>
+              </Providers>
             </ThemeProvider>
           </NextIntlClientProvider>
         </ClerkProvider>
