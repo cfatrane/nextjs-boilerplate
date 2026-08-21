@@ -30,7 +30,7 @@
     "@auth/prisma-adapter": "^2.2.0",
     "@clerk/localizations": "^4.15.4",
     "@clerk/nextjs": "^7.7.9",
-    "@hookform/resolvers": "^3.6.0",
+    "@hookform/resolvers": "^5.9.1",
     "@prisma/adapter-pg": "7",
     "@prisma/client": "7",
     "@radix-ui/react-checkbox": "^1.0.4",
