@@ -1,0 +1,28 @@
+name: Migrate production database
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-database-migration
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    environment: production
+    runs-on: ubuntu-latest
+    env:
+      DIRECT_URL: ${{ secrets.DIRECT_URL }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .node-version
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - run: bun install --frozen-lockfile
+      - run: bun run prisma:migrate:deploy

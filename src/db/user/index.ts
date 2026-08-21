@@ -1,91 +1,13 @@
-"use server";
-
-import type { User } from "@/generated/prisma/client";
+import "server-only";
 
 import prisma from "@/lib/prisma";
 
-// Create
-type CreateUserProps = Pick<
-  User,
-  | "clerkUserId"
-  | "createdAt"
-  | "email"
-  | "firstName"
-  | "hasVerifiedEmailAddress"
-  | "imageUrl"
-  | "lastName"
-  | "lastSignInAt"
-  | "updatedAt"
-  | "username"
->;
+import { makeUserRepository } from "./user-repository";
 
-export const createUser = async ({
-  clerkUserId,
-  createdAt,
-  email,
-  firstName,
-  hasVerifiedEmailAddress,
-  imageUrl,
-  lastName,
-  lastSignInAt,
-  username,
-  updatedAt,
-}: CreateUserProps) => {
-  const user = await prisma.user.create({
-    data: {
-      clerkUserId,
-      createdAt,
-      email,
-      firstName,
-      hasVerifiedEmailAddress,
-      imageUrl,
-      lastName,
-      lastSignInAt,
-      updatedAt,
-      username,
-    },
-  });
+const repository = makeUserRepository({
+  deleteMany: (args) => prisma.user.deleteMany(args),
+  findUnique: (args) => prisma.user.findUnique(args),
+  upsert: (args) => prisma.user.upsert(args),
+});
 
-  return user;
-};
-
-export const getAllUsers = async () => {
-  const users = await prisma.user.findMany();
-
-  return users;
-};
-
-export const getUserByEmail = async (email: string) => {
-  const user = await prisma.user.findUnique({
-    where: {
-      email,
-    },
-  });
-
-  return user;
-};
-
-// Update
-export const updateUser = async ({
-  clerkUserId,
-  data,
-}: {
-  clerkUserId: string;
-  data: object;
-}) => {
-  const updatedUser = await prisma.user.update({
-    where: { clerkUserId },
-    data,
-  });
-
-  return updatedUser;
-};
-
-// Delete
-export const deleteUser = async (clerkUserId: string) => {
-  const deletedUser = await prisma.user.delete({
-    where: { clerkUserId },
-  });
-
-  return deletedUser;
-};
+export const { deleteUserByClerkId, getUserByClerkId, syncUser } = repository;
