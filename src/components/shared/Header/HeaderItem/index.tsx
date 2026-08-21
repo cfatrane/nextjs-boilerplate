@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 
 export function HeaderItem({ href, label }: { href: string; label: string }) {
   const pathname = usePathname();
@@ -9,7 +8,7 @@ export function HeaderItem({ href, label }: { href: string; label: string }) {
 
   return (
     <Link
-      className="text-muted-foreground transition-colors hover:text-foreground data-[active=true]:text-foreground"
+      className="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground transition-colors"
       data-active={isActive}
       href={href}
     >
