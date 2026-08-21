@@ -1,16 +1,19 @@
+import { fixupConfigRules } from "@eslint/compat";
 import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
 import nextTypescript from "eslint-config-next/typescript";
 import eslintConfigPrettier from "eslint-config-prettier";
-import pluginJest from "eslint-plugin-jest";
 import tailwind from "eslint-plugin-tailwindcss";
 
 const eslintConfig = [
-  ...nextCoreWebVitals,
-  ...nextTypescript,
-  pluginJest.configs["flat/recommended"],
+  ...fixupConfigRules([...nextCoreWebVitals, ...nextTypescript]),
   eslintConfigPrettier,
-  ...tailwind.configs["flat/recommended"],
+  tailwind.configs.recommended,
   {
+    settings: {
+      tailwindcss: {
+        cssConfigPath: "src/app/globals.css",
+      },
+    },
     rules: {
       // C
       camelcase: "off",
@@ -87,7 +90,7 @@ const eslintConfig = [
 
       // React
       "react/boolean-prop-naming": ["warn"],
-      "react/jsx-newline": ["warn"],
+      "react/jsx-newline": "off",
       "react/jsx-no-useless-fragment": [
         "error",
         {
@@ -100,6 +103,8 @@ const eslintConfig = [
           ignoreCase: true,
         },
       ],
+      "tailwindcss/classnames-order": "off",
+      "tailwindcss/no-unnecessary-arbitrary-value": "off",
     },
   },
   {
@@ -110,6 +115,23 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
     ],
+  },
+  {
+    files: ["src/components/ui/**/*.{ts,tsx}"],
+    rules: {
+      "react/jsx-newline": "off",
+      "react/jsx-sort-props": "off",
+      "tailwindcss/classnames-order": "off",
+      "tailwindcss/enforces-canonical-classname": "off",
+      "tailwindcss/enforces-shorthand": "off",
+      "tailwindcss/no-unnecessary-arbitrary-value": "off",
+    },
+  },
+  {
+    files: ["src/lib/utils.ts"],
+    rules: {
+      "tailwindcss/no-custom-classname": "off",
+    },
   },
 ];
 
